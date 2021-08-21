@@ -1,19 +1,17 @@
-/* eslint-disable */
 const withAntdLess = require("next-plugin-antd-less");
 
 module.exports = withAntdLess({
-  modifyVars: { "@primary-color": "#FBCEB1" },
+  // optional
+  modifyVars: { "@primary-color": "#FF0000" },
+  // optional
+  //   lessVarsFilePath: './src/styles/variables.less',
+  // optional
+  lessVarsFilePathAppendToEndOfContent: false,
+  // optional https://github.com/webpack-contrib/css-loader#object
+  cssLoaderOptions: {},
 
-  lessVarsFilePath: "./src/styles/variables.less",
-  // cssLoaderOptions: {
-  //   esModule: false,
-  //   sourceMap: false,
-  //   modules: {
-  //     mode: 'local',
-  //   },
-  // },
+  // Other Config Here...
 
-  // Other NextConfig Here...
   webpack(config) {
     return config;
   },
