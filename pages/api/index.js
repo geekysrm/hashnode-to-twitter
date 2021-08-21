@@ -1,9 +1,8 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import Twit from "twit";
 const cors = require("cors")({ origin: true });
 const axios = require("axios");
 
-const init = async () => {
+async function init() {
   let axiosConfig = {
     headers: { authorization: `Bearer ${process.env.AUTH0_ACCESS_TOKEN}` },
   };
@@ -14,9 +13,8 @@ const init = async () => {
   );
 
   let data = res.data;
-  console.log(data);
   return data;
-};
+}
 
 export default async function go(req, res) {
   const data = await init();
