@@ -42,7 +42,7 @@ export default function ProtectedEditPage() {
       setEditorTexts(sentencesWithPostLink);
     }
   }, []);
-  // console.log(editorTexts);
+  console.log({ editorTexts });
 
   return (
     <div style={{ display: "flex" }}>
@@ -69,18 +69,12 @@ export default function ProtectedEditPage() {
             />
           );
         })}
-        {/* <div dangerouslySetInnerHTML={{ __html: editorTexts }} /> */}
-        {/* <button
-        onClick={() => {
-          setEditorTexts([...editorTexts, ""]);
-        }}
-      >
-        +
-      </button> */}
       </div>
-      <div style={{ width: "50%" }}>
-        <Preview />
-      </div>
+      {editorTexts.length && (
+        <div style={{ width: "50%" }}>
+          <Preview tweets={editorTexts} />
+        </div>
+      )}
     </div>
   );
 }

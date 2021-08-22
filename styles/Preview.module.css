@@ -239,7 +239,6 @@
   margin-left: 5px;
 }
 .wrap .info .time:before {
-  content: "•";
   color: #8a9ba8;
   margin-right: 5px;
 }
@@ -356,4 +355,12 @@
   font-size: 13px;
   font-weight: 400;
   margin-left: 8px;
+}
+
+.dateTime {
+  cursor: pointer;
+}
+
+.dateTime:hover {
+  text-decoration: underline;
 }
