@@ -107,7 +107,7 @@ async function postTweetThread({
 
   await t.tweetThread([
     { text: "hey 1/3" },
-    { text: "this is a thread 2/3" },
+    { text: "this is a thread 2/3 @js" },
     { text: "bye 3/3" },
   ]);
   console.log("done");

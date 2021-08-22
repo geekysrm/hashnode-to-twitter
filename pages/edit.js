@@ -5,6 +5,7 @@ import useLocalStorage from "../utils/useLocalStorage";
 import { Input } from "antd";
 import tokenizer from "sbd";
 import twitterSplitter from "twitter-splitter";
+import Preview from "../components/Preview";
 // import countChars from "../utils/countChars";
 
 const { TextArea } = Input;
@@ -76,6 +77,9 @@ export default function ProtectedEditPage() {
       >
         +
       </button> */}
+      </div>
+      <div style={{ width: "50%" }}>
+        <Preview />
       </div>
     </div>
   );
