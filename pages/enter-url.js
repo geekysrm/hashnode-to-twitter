@@ -10,6 +10,7 @@ export default function ProtectedEditPage() {
   const router = useRouter();
   const [inputUrl, setInputUrl] = useState("");
   const [postText, setPostText] = useLocalStorage("postText", "");
+  const [postUrl, setPostUrl] = useLocalStorage("postUrl", "");
 
   const handleFetchClick = async () => {
     if (!inputUrl) {
@@ -24,7 +25,8 @@ export default function ProtectedEditPage() {
       // show error message in UI that not a hashnode blog, please enter a hashnode blog post url
     }
     if (blogPostText) {
-      await setPostText(blogPostText); // stored in localStorage as postText
+      await setPostText(blogPostText); // blog post text stored in localStorage as postText
+      await setPostUrl(inputUrl); // url stored in localStorage as postUrl
       router.push("/edit");
     }
   };

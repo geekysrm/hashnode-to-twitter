@@ -18,6 +18,8 @@ export default function ProtectedEditPage() {
   useEffect(() => {
     if (process.browser) {
       const postText = window.localStorage.getItem("postText");
+      const postUrl = window.localStorage.getItem("postUrl");
+
       // console.log(postText);
       // const ans = countChars("abc😎def");
       // const sentences = tokenizer.sentences(
@@ -31,7 +33,12 @@ export default function ProtectedEditPage() {
         joiner
       );
       // console.log(sentences); // array
-      setEditorTexts(sentences);
+      const blogLinkText = `To read more, please visit my blog at @hashnode : ${postUrl.substring(
+        1,
+        postUrl.length - 1
+      )}`;
+      const sentencesWithPostLink = [...sentences, blogLinkText];
+      setEditorTexts(sentencesWithPostLink);
     }
   }, []);
   // console.log(editorTexts);
