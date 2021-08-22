@@ -2,7 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import { useUser } from "@auth0/nextjs-auth0";
-import { Button, Radio } from "antd";
+import { Button } from "antd";
 import { DownloadOutlined } from "@ant-design/icons";
 
 export default function Home() {
