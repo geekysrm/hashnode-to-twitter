@@ -21,7 +21,9 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "runes": "^0.4.3",
+    "sbd": "^1.0.19",
     "twit": "^2.2.11",
-    "twit-thread": "^2.1.0"
+    "twit-thread": "^2.1.0",
+    "twitter-splitter": "^1.0.0"
   }
 }
