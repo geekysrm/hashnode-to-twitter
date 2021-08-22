@@ -8,9 +8,18 @@ export default function ProtectedEditPage() {
   const [inputUrl, setInputUrl] = useState("");
 
   const handleFetchClick = async () => {
+    if (!inputUrl) {
+      return;
+      // show error in UI that please enter a URL
+    }
     const { data } = await axios.get(`/api/scrape?url=${inputUrl}`);
-    const { isHashnodeBlogPostUrl } = data;
+    const { isHashnodeBlogPostUrl, error } = data;
     console.log(isHashnodeBlogPostUrl);
+    // if (!isHashnodeBlogPostUrl) {
+    //   // not a Hashnode blog post URL, show error in UI that please enter a Hashnode blog post URL
+    // } else {
+    //   // is a hashode blog post URL
+    // }
   };
 
   return (
@@ -21,6 +30,7 @@ export default function ProtectedEditPage() {
         value={inputUrl}
         onChange={(e) => setInputUrl(e.target.value)}
       />
+      {/* Have a button for example, my tailwindcss article link */}
       <Button
         type="primary"
         icon={<SearchOutlined />}
