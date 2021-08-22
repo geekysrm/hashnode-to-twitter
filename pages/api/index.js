@@ -20,13 +20,13 @@ async function init() {
 }
 
 export default async function handler(req, res) {
+  // console.log(req.body);
   // const body = JSON.parse(req.body); // body sent from frontend POST request
   // body will contain the tweets and replyID and auth0 userID of the user
-
+  const { tweets } = req.body;
   const data = await init();
   const access_token = data.identities[0].access_token;
   const access_token_secret = data.identities[0].access_token_secret;
-  console.log("here 27");
   // const T = new Twit({
   //   consumer_key: process.env.TWITTER_CONSUMER_KEY,
   //   consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
@@ -49,14 +49,14 @@ export default async function handler(req, res) {
   //   tweets: [],
   //   replyID: null,
   // });
-  await postTweetThread({
+  const postedTweets = await postTweetThread({
     accessToken: access_token,
     accessTokenSecret: access_token_secret,
-    tweets: [],
+    tweets: tweets.slice(0, 4),
     replyID: null,
   });
 
-  res.status(200).json({ name: "Soumya" });
+  res.status(200).json({ postedTweets });
 }
 
 // function postThread({ accessToken, accessTokenSecret, tweets, replyID }) {
@@ -90,12 +90,7 @@ export default async function handler(req, res) {
 //     .then(() => processedTweets);
 // }
 
-async function postTweetThread({
-  accessToken,
-  accessTokenSecret,
-  tweets,
-  replyID,
-}) {
+async function postTweetThread({ accessToken, accessTokenSecret, tweets }) {
   const config = {
     consumer_key: process.env.TWITTER_CONSUMER_KEY,
     consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
@@ -105,12 +100,13 @@ async function postTweetThread({
   };
   const t = new TwitThread(config);
 
-  await t.tweetThread([
-    { text: "hey 1/3" },
-    { text: "this is a thread 2/3 @js" },
-    { text: "bye 3/3" },
-  ]);
+  const textToTweetArray = tweets.map((tweet) => {
+    return { text: tweet };
+  });
+
+  const data = await t.tweetThread(textToTweetArray);
   console.log("done");
+  return data;
 }
 
 // function getTwitterAPI({ accessToken, accessTokenSecret }) {

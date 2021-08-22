@@ -1,9 +1,15 @@
 import styles from "../styles/Preview.module.css";
 import MainTweet from "./MainTweet";
+import { Button } from "antd";
+import { useRouter } from "next/router";
 
+import { TwitterOutlined } from "@ant-design/icons";
 import SubTweet from "./SubTweet";
+import axios from "axios";
 
 const Preview = ({ tweets }) => {
+  const router = useRouter();
+
   const mainTweet = tweets[0];
   let restTweets = [];
   for (let i = 1; i < tweets.length; i++) restTweets.push(tweets[i]);
@@ -25,6 +31,27 @@ const Preview = ({ tweets }) => {
             return <SubTweet tweet={tweet} />;
           })}
         </div>
+        <Button
+          type="primary"
+          icon={<TwitterOutlined />}
+          onClick={async () => {
+            console.log(tweets);
+            const { data } = await axios.post(`/api/`, {
+              tweets,
+            });
+            console.log(data.postedTweets);
+
+            router.push(
+              {
+                pathname: "/done",
+                query: { mainTweetId: data.postedTweets[0].id_str },
+              },
+              "/done"
+            );
+          }}
+        >
+          Fetch blog post
+        </Button>
       </div>
     </div>
   );

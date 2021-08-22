@@ -35,10 +35,10 @@ const MainTweet = ({ tweet }) => {
         </div>
         <div className={`${styles.rl} ${styles.pt} ${styles.pb}`}>
           <div className={styles.retweets}>
-            <b>15.4K</b> Retweets
+            <b>10.5K</b> Retweets
           </div>
           <div className={styles.likes}>
-            <b>20.9K</b> Likes
+            <b>21.2K</b> Likes
           </div>
         </div>
       </div>
