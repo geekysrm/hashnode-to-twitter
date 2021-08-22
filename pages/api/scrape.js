@@ -24,9 +24,8 @@ export default async function handler(req, res) {
       "div#__next > div > div.blog-post-area > main > article > div.blog-content-wrapper.article-main-wrapper > section.blog-content-main"
     )
       .last("div")
+      .find("div.prose")
       .html();
-
-    //   .html();
     console.log(hello);
     // res.status(200).json({ html });
   }
