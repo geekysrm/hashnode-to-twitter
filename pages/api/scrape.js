@@ -11,15 +11,24 @@ export default async function handler(req, res) {
 
   const firstInputId = $("input").attr("id");
   const isHashnodeBlogPostUrl =
-    !containsHashnodeDotCom && firstInputId === "hn-user"; // differentiate between blog pages and other pages? if it contains hashnode.com then it is a normal hashnode page, not a hashnode blog post
+    !containsHashnodeDotCom && firstInputId === "hn-user";
   //   res.status(200).json({ isHashnodeBlogPostUrl });
 
   if (!isHashnodeBlogPostUrl) {
     res.status(401).json({ error: "not a hashnode blogpost url" });
   } else {
     // is hashnode blog post URL
-    console.log($.html());
-    res.status(200).json({ html: $.html() });
+    // console.log($.html());
+    const html = $.html();
+    const hello = $(
+      "div#__next > div > div.blog-post-area > main > article > div.blog-content-wrapper.article-main-wrapper > section.blog-content-main"
+    )
+      .last("div")
+      .html();
+
+    //   .html();
+    console.log(hello);
+    // res.status(200).json({ html });
   }
 }
 

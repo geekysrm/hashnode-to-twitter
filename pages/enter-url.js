@@ -13,13 +13,9 @@ export default function ProtectedEditPage() {
       // show error in UI that please enter a URL
     }
     const { data } = await axios.get(`/api/scrape?url=${inputUrl}`);
-    const { isHashnodeBlogPostUrl, error } = data;
-    console.log(isHashnodeBlogPostUrl);
-    // if (!isHashnodeBlogPostUrl) {
-    //   // not a Hashnode blog post URL, show error in UI that please enter a Hashnode blog post URL
-    // } else {
-    //   // is a hashode blog post URL
-    // }
+    const { html, error } = data;
+    console.log(error); // show error that not a hashnode blog, please enter a hashnode blog post url
+    console.log(html);
   };
 
   return (
