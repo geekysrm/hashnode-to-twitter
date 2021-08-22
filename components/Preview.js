@@ -7,9 +7,10 @@ import {
 } from "@ant-design/icons";
 import { FiChevronDown } from "react-icons/fi";
 import { BiMessageRounded } from "react-icons/bi";
+import getTodaysDate from "../utils/getTodaysDate";
 
 const Preview = () => {
-  const date = Date;
+  const { date, time } = getTodaysDate();
   return (
     <div className={styles.rootContainer}>
       <h1 style={{ color: "white", textAlign: "center" }}>
@@ -51,7 +52,7 @@ const Preview = () => {
                 src="https://i.giphy.com/media/26ufp2LYURTvL5PRS/giphy.webp"
               />
               <div className={`${styles.date} ${styles.pt} ${styles.pb}`}>
-                4:20 pm • 1 Oct 17 from <a>Manchester, UK</a>
+                {time} • {date} from <a>Manchester, UK</a>
               </div>
               <div className={`${styles.rl} ${styles.pt} ${styles.pb}`}>
                 <div className={styles.retweets}>
@@ -91,11 +92,11 @@ const Preview = () => {
                   <div className={`${styles.userinfo} ${styles.sl}`}>
                     <div className={styles.name}>Soumya</div>
                     <div className={styles.handle}>@geekysrm</div>
-                    <div className={styles.time}>10m</div>
+                    <div className={styles.time}>2m</div>
                   </div>
                   <i className={styles.materialIcons}>
                     {" "}
-                    <FiChevronDown style={{ color: "white" }} />
+                    <FiChevronDown />
                   </i>
                 </div>
                 <div className={`${styles.replyto} ${styles.sl}`}>
