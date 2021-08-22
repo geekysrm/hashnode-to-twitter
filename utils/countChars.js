@@ -12,7 +12,5 @@ export default function countChars(str) {
     if (isEmoji) {
       countEmojis++;
     }
-    // console.log(char);
-    // console.log(isEmoji);
   });
 }

@@ -19,8 +19,7 @@ export default function ProtectedEditPage() {
     }
     const { data } = await axios.get(`/api/scrape?url=${inputUrl}`);
     const { blogPostText, error } = data;
-    console.log(error);
-    console.log(blogPostText); // text of blog post
+
     if (error) {
       // show error message in UI that not a hashnode blog, please enter a hashnode blog post url
     }

@@ -1,5 +1,4 @@
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
-import axios from "axios";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
