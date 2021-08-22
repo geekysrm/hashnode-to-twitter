@@ -1,5 +1,6 @@
 import cheerio from "cheerio";
 import axios from "axios";
+// import { convert } from "html-to-text";
 
 export default async function handler(req, res) {
   const url = req.query.url;
@@ -20,16 +21,17 @@ export default async function handler(req, res) {
     // is hashnode blog post URL
     // console.log($.html());
     // const html = $.html();
+
     const blogPostText = $(
       "div#__next > div > div.blog-post-area > main > article > div.blog-content-wrapper.article-main-wrapper > section.blog-content-main"
     )
       .last("div")
       .find("div.prose")
       .text();
-    //   .html();
-    console.log(blogPostText);
+    //   .html()
+    const cleanedBlogPostText = blogPostText.trim().replaceAll("\n", " ");
 
-    res.status(200).json({ blogPostText });
+    res.status(200).json({ blogPostText: cleanedBlogPostText });
   }
 }
 
