@@ -1,6 +1,6 @@
 import styles from "../styles/Preview.module.css";
 import MainTweet from "./MainTweet";
-import { Button } from "antd";
+// import { Button } from "antd";
 import { useRouter } from "next/router";
 
 import { TwitterOutlined } from "@ant-design/icons";
@@ -31,9 +31,9 @@ const Preview = ({ tweets }) => {
             return <SubTweet tweet={tweet} />;
           })}
         </div>
-        <Button
-          type="primary"
-          icon={<TwitterOutlined />}
+        <button
+          // type="primary"
+          // icon={<TwitterOutlined />}
           onClick={async () => {
             console.log(tweets);
             const { data } = await axios.post(`/api/`, {
@@ -51,7 +51,7 @@ const Preview = ({ tweets }) => {
           }}
         >
           Fetch blog post
-        </Button>
+        </button>
       </div>
     </div>
   );

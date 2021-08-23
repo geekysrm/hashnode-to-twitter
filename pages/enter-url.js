@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import axios from "axios";
-import { Input, Button } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import useLocalStorage from "../utils/useLocalStorage";
 
@@ -33,19 +32,20 @@ export default function ProtectedEditPage() {
   return (
     <div>
       <h1>Enter Hashnode Blog URL</h1>
-      <Input
+      <input
+        type="text"
         placeholder="https://example.com"
         value={inputUrl}
         onChange={(e) => setInputUrl(e.target.value)}
       />
       {/* Have a button for example, my tailwindcss article link */}
-      <Button
-        type="primary"
-        icon={<SearchOutlined />}
+      <button
+        // type="primary"
+        // icon={<SearchOutlined />}
         onClick={handleFetchClick}
       >
         Fetch blog post
-      </Button>
+      </button>
     </div>
   );
 }

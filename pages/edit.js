@@ -1,10 +1,10 @@
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { useState, useEffect } from "react";
-import { Input } from "antd";
+// import { Input } from "antd";
 import twitterSplitter from "twitter-splitter";
 import Preview from "../components/Preview";
 
-const { TextArea } = Input;
+// const { TextArea } = Input;
 
 const limit = 280;
 const joiner = "...";
@@ -37,10 +37,10 @@ export default function ProtectedEditPage() {
         <h1>Edit Tweet Thread</h1>
         {editorTexts.map((text, idx) => {
           return (
-            <TextArea
+            <textarea
               value={text}
-              showCount
-              maxLength={280}
+              // showCount
+              // maxLength={280}
               onChange={(e) => {
                 let charToBeAdded = e.target.value;
                 console.log(charToBeAdded);
