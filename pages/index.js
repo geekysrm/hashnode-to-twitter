@@ -10,6 +10,21 @@ export default function Home() {
   if (error) return <div>{error.message}</div>;
   console.log(user);
   return (
+    <div>
+      <section
+        style={{
+          background: "#2962ff",
+          minHeight: "60vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <h1>Hashnode to Twitter</h1>
+      </section>
+    </div>
+  );
+  return (
     <div className={styles.container}>
       {user ? (
         <div>
