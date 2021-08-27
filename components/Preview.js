@@ -31,27 +31,28 @@ const Preview = ({ tweets }) => {
             return <SubTweet tweet={tweet} />;
           })}
         </div>
-        <button
-          // type="primary"
-          // icon={<TwitterOutlined />}
-          onClick={async () => {
-            console.log(tweets);
-            const { data } = await axios.post(`/api/`, {
-              tweets,
-            });
-            console.log(data.postedTweets);
+        <div className="fixed bottom-0.5 z-20 flex justify-center w-1/2 bg-[#1b2836] py-3 items-center">
+          <button
+            className="flex items-center justify-center px-4 py-3 text-base font-medium text-white bg-indigo-500 border border-transparent rounded-md shadow-sm bg-opacity-60 hover:bg-opacity-70 sm:px-8"
+            onClick={async () => {
+              console.log(tweets);
+              const { data } = await axios.post(`/api/`, {
+                tweets,
+              });
+              console.log(data.postedTweets);
 
-            router.push(
-              {
-                pathname: "/done",
-                query: { mainTweetId: data.postedTweets[0].id_str },
-              },
-              "/done"
-            );
-          }}
-        >
-          Fetch blog post
-        </button>
+              router.push(
+                {
+                  pathname: "/done",
+                  query: { mainTweetId: data.postedTweets[0].id_str },
+                },
+                "/done"
+              );
+            }}
+          >
+            Tweet 🚀
+          </button>
+        </div>
       </div>
     </div>
   );

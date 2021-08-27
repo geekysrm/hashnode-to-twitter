@@ -3,13 +3,11 @@ import axios from "axios";
 
 export default async function handler(req, res) {
   const url = req.query.url;
-  const containsHashnodeDotCom = url.includes("hashnode.com");
 
   const $ = await fetchHTML(`${url}`);
 
   const firstInputId = $("input").attr("id");
-  const isHashnodeBlogPostUrl =
-    !containsHashnodeDotCom && firstInputId === "hn-user";
+  const isHashnodeBlogPostUrl = firstInputId === "hn-user";
 
   if (!isHashnodeBlogPostUrl) {
     res.status(401).json({ error: "not a hashnode blogpost url" });

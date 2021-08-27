@@ -1,5 +1,4 @@
 .rootContainer {
-  background: #1b2836;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -270,7 +269,7 @@
   border-radius: 58px;
   margin: 0px;
   box-sizing: border-box;
-  z-index: 99;
+  z-index: 9;
   position: relative;
 }
 .border {

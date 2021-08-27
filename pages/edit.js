@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 // import { Input } from "antd";
 import twitterSplitter from "twitter-splitter";
 import Preview from "../components/Preview";
+import Textarea from "react-textarea-counter";
 
 // const { TextArea } = Input;
 
@@ -32,32 +33,45 @@ export default function ProtectedEditPage() {
   console.log({ editorTexts });
 
   return (
-    <div style={{ display: "flex" }}>
-      <div style={{ width: "50%" }}>
-        <h1>Edit Tweet Thread</h1>
-        {editorTexts.map((text, idx) => {
-          return (
-            <textarea
-              value={text}
-              // showCount
-              // maxLength={280}
-              onChange={(e) => {
-                let charToBeAdded = e.target.value;
-                console.log(charToBeAdded);
-                let newArray = [];
-                for (let i = 0; i < editorTexts.length; i++) {
-                  if (i === idx) {
-                    newArray.push(charToBeAdded);
-                  } else newArray.push(editorTexts[i]);
-                }
-                setEditorTexts(newArray);
-              }}
-            />
-          );
-        })}
+    <div className="flex space-x-36">
+      <div className="w-1/2">
+        <h2 class="py-5 pl-5 text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
+          Edit Tweet Thread
+        </h2>
+        <div className="flex flex-col pl-5">
+          {editorTexts.map((text, idx) => {
+            return (
+              <div className="w-full">
+                <div class="bg-gray-200 px-3 py-2 border-b">
+                  <h3 class="text-sm text-gray-800 font-medium">
+                    Tweet #{idx + 1}
+                  </h3>
+                </div>
+                <Textarea
+                  className="px-2 py-4 mb-3 border-l-2 border-r-2 border-gray-200 border-dotted"
+                  resize="vertical"
+                  countLimit={280}
+                  initialValue={text}
+                  placeholder="Enter a tweet"
+                  onChange={(e) => {
+                    let charToBeAdded = e.target.value;
+                    console.log(charToBeAdded);
+                    let newArray = [];
+                    for (let i = 0; i < editorTexts.length; i++) {
+                      if (i === idx) {
+                        newArray.push(charToBeAdded);
+                      } else newArray.push(editorTexts[i]);
+                    }
+                    setEditorTexts(newArray);
+                  }}
+                />
+              </div>
+            );
+          })}
+        </div>
       </div>
       {editorTexts.length && (
-        <div style={{ width: "50%" }}>
+        <div style={{ width: "50%", background: "#1b2836" }}>
           <Preview tweets={editorTexts} />
         </div>
       )}
