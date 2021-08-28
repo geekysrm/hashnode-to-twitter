@@ -1,26 +1,27 @@
+import { useState, useEffect } from "react";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import Head from "next/head";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import Header from "../components/Header";
 
 export default function ProtectedDonePage({ user }) {
-  const { query } = useRouter();
-  const { postedTweets: postedTweetsString } = query;
-  if (!postedTweetsString) {
-    return (
-      <div>
-        Please go to{" "}
-        <Link href="/enter-url">
-          <a>Enter URL</a>
-        </Link>{" "}
-        page.
-      </div>
-    );
-  }
-  const postedTweets = JSON.parse(postedTweetsString);
-  console.log("new", postedTweets);
+  const router = useRouter();
 
+  const [postedTweets, setPostedTweets] = useState(null);
+
+  useEffect(() => {
+    const { postedTweets: postedTweetsString } = router.query;
+    console.log(postedTweetsString);
+    if (!postedTweetsString) {
+      console.log("here");
+      router.push("/");
+    } else {
+      const postedTweets = JSON.parse(postedTweetsString);
+      setPostedTweets(postedTweets);
+    }
+  }, []);
+
+  if (!postedTweets) return <></>;
   return (
     <div className="mx-auto max-w-7xl">
       <Head>
@@ -47,9 +48,9 @@ export default function ProtectedDonePage({ user }) {
           </a>{" "}
           to view it on Twitter.
         </span>
-        <div>
+        <div className="flex flex-col items-center w-full">
           {postedTweets.map((tweet) => (
-            <blockquote class="twitter-tweet">
+            <blockquote className="twitter-tweet">
               <a
                 href={`https://twitter.com/${user.nickname}/status/${tweet.id_str}`}
               ></a>
