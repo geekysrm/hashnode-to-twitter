@@ -1,11 +1,9 @@
 import styles from "../styles/Preview.module.css";
-import {
-  RetweetOutlined,
-  HeartOutlined,
-  MailOutlined,
-} from "@ant-design/icons";
 import { FiChevronDown } from "react-icons/fi";
-import { BiMessageRounded } from "react-icons/bi";
+import Reply from "./icons/Reply";
+import Retweet from "./icons/Retweet";
+import Share from "./icons/Share";
+import Like from "./icons/Like";
 
 const SubTweet = ({ tweet, user }) => {
   return (
@@ -36,16 +34,16 @@ const SubTweet = ({ tweet, user }) => {
             </div>
             <div className={`${styles.icons} flex justify-center items-center`}>
               <div className={`${styles.ico} reply-icon`}>
-                <BiMessageRounded />
+                <Reply className="h-5 fill-current" />
               </div>
               <div className={`${styles.ico} retweet-icon`}>
-                <RetweetOutlined />
+                <Retweet className="h-5 fill-current" />
               </div>
               <div className={`${styles.ico} heart-icon`}>
-                <HeartOutlined />
+                <Like className="h-5 fill-current" />
               </div>
               <div className={`${styles.ico} dm-icon`}>
-                <MailOutlined />
+                <Share className="h-5 fill-current" />
               </div>
             </div>
           </div>

@@ -34,14 +34,16 @@ export default function Header({ user }) {
       <div className="relative bg-white">
         <div className="flex items-center justify-between px-4 py-6 mx-auto max-w-7xl sm:px-6 md:justify-start md:space-x-10 lg:px-8">
           <div className="flex justify-start lg:w-0 lg:flex-1">
-            <a href="#">
-              <span className="sr-only">Hashnode to Twitter</span>
-              <img
-                className="w-auto h-8 sm:h-10"
-                src="https://tailwindui.com/img/logos/workflow-mark-purple-600-to-indigo-600.svg"
-                alt=""
-              />
-            </a>
+            <Link href="/">
+              <a>
+                <span className="sr-only">Hashnode to Twitter</span>
+                <img
+                  className="w-auto h-8 sm:h-10"
+                  src="https://tailwindui.com/img/logos/workflow-mark-purple-600-to-indigo-600.svg"
+                  alt=""
+                />
+              </a>
+            </Link>
           </div>
 
           <div className="items-center justify-end md:flex md:flex-1 lg:w-0">
@@ -55,7 +57,7 @@ export default function Header({ user }) {
                 type="button"
                 className="inline-flex items-center px-4 py-2 text-base font-medium text-gray-800 bg-gray-200 border border-transparent rounded-md shadow-sm hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 "
               >
-                <FaGithub style={{ marginRight: "4px" }} /> View Source
+                <FaGithub className="mr-1" /> View Source
               </button>
             </a>
 

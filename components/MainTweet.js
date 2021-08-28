@@ -1,12 +1,10 @@
 import styles from "../styles/Preview.module.css";
-import {
-  RetweetOutlined,
-  HeartOutlined,
-  MailOutlined,
-} from "@ant-design/icons";
 import { FiChevronDown } from "react-icons/fi";
-import { BiMessageRounded } from "react-icons/bi";
 import getTodaysDate from "../utils/getTodaysDate";
+import Reply from "./icons/Reply";
+import Retweet from "./icons/Retweet";
+import Share from "./icons/Share";
+import Like from "./icons/Like";
 
 const MainTweet = ({ tweet, user }) => {
   const { date, time } = getTodaysDate();
@@ -19,7 +17,7 @@ const MainTweet = ({ tweet, user }) => {
           <img src={user.picture} />
           <div className={`${styles.username}`}>
             <div className={styles.name}>{user.name}</div>
-            <div className={styles.handle}>@${user.nickname}</div>
+            <div className={styles.handle}>@{user.nickname}</div>
           </div>
           <i className={`${styles.materialIcons}`}>
             <FiChevronDown />
@@ -44,16 +42,16 @@ const MainTweet = ({ tweet, user }) => {
       </div>
       <div className={`${styles.icons} flex justify-center items-center`}>
         <div className={`${styles.ico} flex items-center justify-center`}>
-          <BiMessageRounded />
+          <Reply className="h-5 fill-current" />
         </div>
         <div className={`${styles.ico} flex items-center justify-center`}>
-          <RetweetOutlined />
+          <Retweet className="h-5 fill-current" />
         </div>
         <div className={`${styles.ico} flex items-center justify-center`}>
-          <HeartOutlined />
+          <Like className="h-5 fill-current" />
         </div>
         <div className={`${styles.ico} flex items-center justify-center`}>
-          <MailOutlined />
+          <Share className="h-5 fill-current" />
         </div>
       </div>
     </div>

@@ -75,13 +75,7 @@ export default function ProtectedEditPage({ user }) {
           </div>
         </div>
         {editorTexts.length && (
-          <div
-            style={{
-              width: "50%",
-              background: "#1b2836",
-              paddingRight: "200px",
-            }}
-          >
+          <div className="w-1/2 pr-64 bg-white">
             <Preview user={user} tweets={editorTexts} />
           </div>
         )}
