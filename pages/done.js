@@ -22,7 +22,7 @@ export default function ProtectedDonePage({ user }) {
   console.log("new", postedTweets);
 
   return (
-    <div>
+    <div className="mx-auto max-w-7xl">
       <Head>
         <script
           async

@@ -34,10 +34,10 @@ export default function ProtectedEditPage({ user }) {
   console.log({ editorTexts });
 
   return (
-    <>
+    <div className="mx-auto">
       <Header user={user} />
       <div className="flex space-x-36">
-        <div className="w-1/2">
+        <div className="w-1/2 ml-64">
           <h2 className="py-5 pl-5 text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
             Edit Tweet Thread
           </h2>
@@ -75,12 +75,18 @@ export default function ProtectedEditPage({ user }) {
           </div>
         </div>
         {editorTexts.length && (
-          <div style={{ width: "50%", background: "#1b2836" }}>
+          <div
+            style={{
+              width: "50%",
+              background: "#1b2836",
+              paddingRight: "200px",
+            }}
+          >
             <Preview user={user} tweets={editorTexts} />
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 }
 

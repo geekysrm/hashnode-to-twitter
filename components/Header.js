@@ -1,7 +1,34 @@
+import { useState, useRef, useEffect } from "react";
 import { FaGithub } from "react-icons/fa";
 import Link from "next/link";
 
 export default function Header({ user }) {
+  const node = useRef();
+
+  const [open, setOpen] = useState(false);
+  console.log(open);
+  const handleClickOutside = (e) => {
+    if (node.current.contains(e.target)) {
+      // inside click
+      return;
+    }
+    // outside click
+    console.log("outside click");
+    setOpen(false);
+  };
+
+  useEffect(() => {
+    if (open) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [open]);
+
   return (
     <header>
       <div className="relative bg-white">
@@ -34,19 +61,53 @@ export default function Header({ user }) {
 
             {user ? (
               <div>
-                <img src={user.picture} alt={user.name} />
-                <h2>{user.name}</h2>
-                <p>{user.email}</p>
-                <div>
-                  {" "}
-                  <Link href="/api/auth/logout">
-                    <a>Logout</a>
-                  </Link>
+                <div className="relative ml-3">
+                  <div>
+                    <button
+                      type="button"
+                      className="flex items-center max-w-xs text-sm bg-white rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                      onClick={() => setOpen(true)}
+                    >
+                      <span className="sr-only">Open user menu</span>
+                      <img
+                        className="w-8 h-8 rounded-full"
+                        src={user.picture}
+                        alt={user.name}
+                      />
+                    </button>
+                  </div>
+
+                  {open && (
+                    <div
+                      className="absolute right-0 z-50 w-48 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                      role="menu"
+                    >
+                      <div>
+                        <p className="block px-4 py-2 font-bold text-gray-700 text-md">
+                          {user.name}
+                        </p>
+                        <p className="block px-4 pb-2 text-sm text-gray-500">
+                          @{user.nickname}
+                        </p>
+                      </div>
+
+                      <Link href="/api/auth/logout">
+                        <a
+                          ref={node}
+                          href="/"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          role="menuitem"
+                        >
+                          Log out
+                        </a>
+                      </Link>
+                    </div>
+                  )}
                 </div>
               </div>
             ) : (
               <Link href="/api/auth/login">
-                <a className="inline-flex items-center justify-center px-4 py-2 ml-8 text-base font-medium text-white border border-transparent rounded-md shadow-sm whitespace-nowrap bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700">
+                <a className="inline-flex items-center justify-center px-4 py-2 ml-4 text-base font-medium text-white border border-transparent rounded-md shadow-sm whitespace-nowrap bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700">
                   Login
                 </a>
               </Link>

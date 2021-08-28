@@ -28,7 +28,7 @@ const Preview = ({ tweets, user }) => {
             return <SubTweet user={user} tweet={tweet} />;
           })}
         </div>
-        <div className="fixed bottom-0.5 z-20 flex justify-center w-1/2 bg-[#1b2836] py-3 items-center">
+        <div className="fixed bottom-0 z-20 flex justify-center w-1/2 bg-[#1b2836] py-3 items-center">
           <button
             className="flex items-center justify-center px-4 py-3 text-base font-medium text-white bg-indigo-500 border border-transparent rounded-md shadow-sm bg-opacity-60 hover:bg-opacity-70 sm:px-8"
             onClick={async () => {
