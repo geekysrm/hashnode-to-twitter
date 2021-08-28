@@ -8,18 +8,18 @@ import { FiChevronDown } from "react-icons/fi";
 import { BiMessageRounded } from "react-icons/bi";
 import getTodaysDate from "../utils/getTodaysDate";
 
-const MainTweet = ({ tweet }) => {
+const MainTweet = ({ tweet, user }) => {
   const { date, time } = getTodaysDate();
   return (
-    <div className={`${styles.tweet}`}>
+    <div className={`${styles.tweet} -mt-6 main-tweet`}>
       <div
         className={`${styles.tweetContainer} ${styles.pb} ${styles.pr} ${styles.pl}`}
       >
         <div className={`${styles.user} ${styles.pr}`}>
-          <img src="https://github.com/geekysrm.png" />
+          <img src={user.picture} />
           <div className={`${styles.username}`}>
-            <div className={styles.name}>Soumya</div>
-            <div className={styles.handle}>@geekysrm</div>
+            <div className={styles.name}>{user.name}</div>
+            <div className={styles.handle}>@${user.nickname}</div>
           </div>
           <i className={`${styles.materialIcons}`}>
             <FiChevronDown />
@@ -42,17 +42,17 @@ const MainTweet = ({ tweet }) => {
           </div>
         </div>
       </div>
-      <div className={styles.icons}>
-        <div className={styles.ico}>
+      <div className={`${styles.icons} flex justify-center items-center`}>
+        <div className={`${styles.ico} flex items-center justify-center`}>
           <BiMessageRounded />
         </div>
-        <div className={styles.ico}>
+        <div className={`${styles.ico} flex items-center justify-center`}>
           <RetweetOutlined />
         </div>
-        <div className={styles.ico}>
+        <div className={`${styles.ico} flex items-center justify-center`}>
           <HeartOutlined />
         </div>
-        <div className={styles.ico}>
+        <div className={`${styles.ico} flex items-center justify-center`}>
           <MailOutlined />
         </div>
       </div>

@@ -15,6 +15,7 @@
   padding-bottom: 50px;
   margin-right: auto;
   margin-left: auto;
+  margin-top: 20px;
 }
 .topbar {
   background: #243447;
@@ -177,6 +178,7 @@
   height: 37px;
   border-bottom: 1px solid #15202a;
 }
+
 .tweet .icons:before {
   content: "";
   display: block;
@@ -187,6 +189,7 @@
   height: 1px;
   background: #182430;
 }
+
 .ico {
   float: left;
   width: 25%;
@@ -194,7 +197,9 @@
   padding-bottom: 13px;
   color: white;
   cursor: pointer;
+  font-size: 20px;
 }
+
 .pt {
   padding-top: 13px;
 }
@@ -333,7 +338,7 @@
 }
 .wrap .ico {
   float: left;
-  width: 21%;
+  /* width: 21%; */
   text-align: left;
   padding: 0;
   margin: 0;
