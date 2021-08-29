@@ -6,9 +6,12 @@ export const getTweetHtml = (tweet) => {
     targetBlank: true,
   });
 
-  //   const links = twitter.extractUrls(tweet);
-  //   const lastLink = links.slice(-1)[0];
-  console.log(tweetHtml);
+  const links = twitter.extractUrls(tweet);
+  let lastLink = "";
+  if (links && links.length) {
+    lastLink = links.slice(-1)[0];
+  }
+  //   console.log(lastLink);
 
-  return tweetHtml;
+  return { tweetHtml, lastLink };
 };

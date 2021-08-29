@@ -4,8 +4,9 @@ import Reply from "./icons/Reply";
 import Retweet from "./icons/Retweet";
 import Share from "./icons/Share";
 import Like from "./icons/Like";
+import ImagePreview from "./ImagePreview";
 
-const SubTweet = ({ tweet, user }) => {
+const SubTweet = ({ tweet, user, lastLink }) => {
   return (
     <div>
       <div className={`${styles.wrap} ${styles.pt}`}>
@@ -29,17 +30,19 @@ const SubTweet = ({ tweet, user }) => {
               </i>
             </div>
 
-            {/* <div className={`${styles.subtweetContent} ${styles.sl}`}>
-              {tweet}
-            </div> */}
             <div
               className={`${styles.subtweetContent} ${styles.sl}`}
               dangerouslySetInnerHTML={{
                 __html: tweet,
               }}
             />
+            <div className="mb-10 -mt-10">
+              <ImagePreview link={lastLink} />
+            </div>
 
-            <div className={`${styles.icons} flex justify-center items-center`}>
+            <div
+              className={`${styles.icons} ${styles.subtweetIcons} flex justify-center items-center`}
+            >
               <div className={`${styles.ico} reply-icon`}>
                 <Reply className="h-5 fill-current" />
               </div>

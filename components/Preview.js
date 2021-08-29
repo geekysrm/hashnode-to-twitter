@@ -9,12 +9,12 @@ const Preview = ({ tweets, user }) => {
   const router = useRouter();
 
   const originalMainTweet = tweets[0];
-  const mainTweet = getTweetHtml(originalMainTweet);
+  const { tweetHtml: mainTweet, lastLink } = getTweetHtml(originalMainTweet);
   let restTweets = [];
   for (let i = 1; i < tweets.length; i++) {
     const originalSubTweet = tweets[i];
-    const subTweet = getTweetHtml(originalSubTweet);
-    restTweets.push(subTweet);
+    const { tweetHtml: subTweet, lastLink } = getTweetHtml(originalSubTweet);
+    restTweets.push({ subTweet, lastLink });
   }
 
   return (
@@ -28,9 +28,15 @@ const Preview = ({ tweets, user }) => {
               Thread
             </p>
           </div>
-          <MainTweet user={user} tweet={mainTweet} />
+          <MainTweet user={user} tweet={mainTweet} lastLink={lastLink} />
           {restTweets.map((tweet) => {
-            return <SubTweet user={user} tweet={tweet} />;
+            return (
+              <SubTweet
+                user={user}
+                tweet={tweet.subTweet}
+                lastLink={tweet.lastLink}
+              />
+            );
           })}
           <div className="fixed bottom-0 z-20 flex items-center justify-center w-1/2 py-3 bg-white">
             <button

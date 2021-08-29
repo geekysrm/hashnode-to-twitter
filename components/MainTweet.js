@@ -7,7 +7,8 @@ import Share from "./icons/Share";
 import Like from "./icons/Like";
 import ImagePreview from "./ImagePreview";
 
-const MainTweet = ({ tweet, user }) => {
+const MainTweet = ({ tweet, user, lastLink }) => {
+  console.log(lastLink);
   const { date, time } = getTodaysDate();
   return (
     <div className={`${styles.tweet} -mt-6 main-tweet`}>
@@ -30,8 +31,7 @@ const MainTweet = ({ tweet, user }) => {
             __html: tweet,
           }}
         />
-        <ImagePreview />
-
+        <ImagePreview link={lastLink} />
         <div className={`${styles.date} ${styles.pt} ${styles.pb}`}>
           <span className={styles.dateTime}>
             {time} • {date}

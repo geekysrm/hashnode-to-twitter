@@ -21,7 +21,8 @@
     "twit": "^2.2.11",
     "twit-thread": "^2.1.0",
     "twitter-splitter": "^1.0.0",
-    "twitter-text": "^3.1.0"
+    "twitter-text": "^3.1.0",
+    "unfurl.js": "^5.6.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.6",
