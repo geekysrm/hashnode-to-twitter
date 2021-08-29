@@ -44,7 +44,7 @@ export default function Header({ user }) {
             </Link>
           </div>
 
-          <div className="items-center justify-end md:flex md:flex-1 lg:w-0">
+          <div className="flex items-center justify-end md:flex md:flex-1 lg:w-0">
             <a
               href="https://github.com/geekysrm/hashnode-to-twitter"
               target="_blank"

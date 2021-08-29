@@ -3,7 +3,6 @@ import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import Header from "../components/Header";
-import Spinner from "../components/icons/Spinner";
 
 export default function ProtectedDonePage({ user }) {
   const router = useRouter();
@@ -25,6 +24,8 @@ export default function ProtectedDonePage({ user }) {
   return (
     <div className="mx-auto max-w-7xl">
       <Head>
+        <title>My page title</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <script
           async
           src="https://platform.twitter.com/widgets.js"
