@@ -41,7 +41,7 @@ const Preview = ({ tweets, user }) => {
               />
             );
           })}
-          <div className="fixed bottom-0 z-20 flex items-center justify-center w-1/2 py-3 bg-white">
+          <div className="fixed bottom-0 z-20 flex items-center justify-center w-full py-3 bg-white md:w-1/2">
             <button
               className={`flex items-center justify-center px-4 py-3 text-base font-medium text-white bg-indigo-500 border border-transparent rounded-md shadow-sm bg-opacity-60 hover:bg-opacity-70 sm:px-8 ${
                 loading ? `cursor-not-allowed` : ``

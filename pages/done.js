@@ -49,7 +49,7 @@ export default function ProtectedDonePage({ user }) {
           to view it on Twitter.
         </span>
         <p className="absolute top-1/2">Loading tweets...</p>
-        <div className="z-40 flex flex-col items-center w-full">
+        <div className="z-40 flex flex-col items-center w-full px-5 md:px-0">
           {postedTweets.map((tweet) => (
             <blockquote className="twitter-tweet">
               <a

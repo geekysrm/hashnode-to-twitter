@@ -60,11 +60,17 @@ export default function ProtectedEditPage({ user }) {
       </Head>
       <div className="mx-auto">
         <Header user={user} />
-        <div className="flex space-x-36">
-          <div className="w-1/2 ml-64">
-            <h2 className="py-5 pl-5 text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
+        <div className="flex flex-col items-center md:items-stretch md:flex-row md:space-x-36">
+          <div className="w-11/12 ml-0 md:w-1/2 md:ml-64">
+            <h2 className="py-0 pl-5 text-2xl font-bold leading-7 text-center text-gray-900 md:py-5 md:text-left sm:text-3xl sm:truncate">
               Edit Tweet Thread
             </h2>
+            <p className="text-center text-gray-600 md:hidden">
+              Go to{" "}
+              <a href="#preview" className="text-blue-500 hover:underline">
+                Preview
+              </a>
+            </p>
 
             <div className="flex flex-col pl-5">
               {editorTexts.map((text, idx) => {
@@ -136,7 +142,10 @@ export default function ProtectedEditPage({ user }) {
             </div>
           </div>
           {editorTexts.length && (
-            <div className="w-1/2 pr-64 bg-white">
+            <div
+              id="preview"
+              className="w-11/12 pr-0 bg-white md:pr-64 md:w-1/2"
+            >
               <Preview user={user} tweets={editorTexts} />
             </div>
           )}
