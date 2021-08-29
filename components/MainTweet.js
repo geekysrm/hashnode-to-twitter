@@ -8,7 +8,7 @@ import Like from "./icons/Like";
 import ImagePreview from "./ImagePreview";
 
 const MainTweet = ({ tweet, user, lastLink }) => {
-  console.log(lastLink);
+  // console.log(lastLink);
   const { date, time } = getTodaysDate();
   return (
     <div className={`${styles.tweet} -mt-6 main-tweet`}>

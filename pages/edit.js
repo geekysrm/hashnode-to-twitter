@@ -88,11 +88,19 @@ export default function ProtectedEditPage({ user }) {
                     id={`tweet-${idx + 1}`}
                     className="w-full px-2 py-4 mb-3 border-b-2 border-l-2 border-r-2 border-gray-200 h-36"
                     resize="vertical"
-                    maxLength={280}
                     value={text}
                     placeholder="Enter a tweet"
                     onChange={(e) => {
-                      let charToBeAdded = e.target.value;
+                      const charToBeAdded = e.target.value;
+                      const currentText = text;
+
+                      if (
+                        countChars(charToBeAdded) > 280 &&
+                        charToBeAdded.length > currentText.length
+                      ) {
+                        return;
+                      }
+
                       let newArray = [];
                       for (let i = 0; i < editorTexts.length; i++) {
                         if (i === idx) {

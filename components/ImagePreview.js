@@ -3,20 +3,20 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 export default function ImagePreview({ link }) {
-  console.log(link);
+  // console.log(link);
   if (!link || !link.includes("http")) {
     return <></>;
   }
   const [ogpData, setOgpData] = useState(null);
 
-  console.log({ ogpData });
+  // console.log({ ogpData });
 
   useEffect(() => {
     axios
       .post("/api/fetchOgp", { url: link })
       .then((res) => {
         const { data } = res;
-        console.log(data);
+        // console.log(data);
         if (data) {
           setOgpData(data.ogp);
         }
@@ -27,7 +27,7 @@ export default function ImagePreview({ link }) {
   useEffect(() => {
     axios.post("/api/fetchOgp", { url: link }).then((res) => {
       const { data } = res;
-      console.log(data);
+      // console.log(data);
       if (data) {
         setOgpData(data.ogp);
       }
