@@ -47,7 +47,20 @@ export default function ProtectedEditPage({ user }) {
                   <button
                     className=""
                     onClick={() => {
-                      console.log("thread clicked");
+                      const curPos = document.getElementById(
+                        `tweet-${idx + 1}`
+                      ).selectionStart;
+                      const charsToBeAdded = `${text.slice(
+                        0,
+                        curPos
+                      )}🧵${text.slice(curPos)}`;
+                      let newArray = [];
+                      for (let i = 0; i < editorTexts.length; i++) {
+                        if (i === idx) {
+                          newArray.push(charsToBeAdded);
+                        } else newArray.push(editorTexts[i]);
+                      }
+                      setEditorTexts(newArray);
                     }}
                   >
                     🧵
@@ -72,6 +85,7 @@ export default function ProtectedEditPage({ user }) {
                   </div>
 
                   <textarea
+                    id={`tweet-${idx + 1}`}
                     className="w-full px-2 py-4 mb-3 border-b-2 border-l-2 border-r-2 border-gray-200 h-36"
                     resize="vertical"
                     maxLength={280}
