@@ -36,8 +36,8 @@ export default function Header({ user }) {
               <a>
                 <span className="sr-only">Hashnode to Twitter</span>
                 <img
-                  className="w-auto h-8 sm:h-10"
-                  src="https://tailwindui.com/img/logos/workflow-mark-purple-600-to-indigo-600.svg"
+                  className="w-auto h-8 sm:h-16"
+                  src="/images/logo.jpg"
                   alt=""
                 />
               </a>

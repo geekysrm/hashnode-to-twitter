@@ -71,8 +71,7 @@ export default function Home() {
                       alt="Hashnode to Twitter"
                     />
                     <div
-                      className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-blue-700"
-                      // className="absolute inset-0 bg-yellow-200"
+                      className="absolute inset-0 bg-gradient-to-r from-yellow-200 to-blue-700"
                       style={{ mixBlendMode: "multiply" }}
                     />
                   </div>
@@ -87,15 +86,17 @@ export default function Home() {
                       increase reach 🚀 🚀
                       {/* Improve above */}
                     </p>
-                    <div className="max-w-sm mx-auto mt-10 sm:max-w-none sm:flex sm:justify-center">
-                      <div className="flex flex-col space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:gap-5">
+                    <div className="flex flex-col max-w-sm mx-auto mt-10 sm:max-w-none sm:flex sm:justify-center">
+                      <div className="flex justify-center w-full">
                         <input
                           type="text"
                           placeholder="https://townhall.hashnode.com/auth0-hackathon"
-                          className="block w-full h-10 px-2 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg"
+                          className="block w-full h-10 px-2 mb-4 border-gray-300 rounded-md md:w-1/2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg"
                           value={inputUrl}
                           onChange={(e) => setInputUrl(e.target.value)}
                         />
+                      </div>
+                      <div className="flex flex-col space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:gap-5">
                         <button
                           disabled={loading}
                           onClick={handleFetchClick}
