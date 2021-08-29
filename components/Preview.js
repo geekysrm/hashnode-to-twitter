@@ -4,9 +4,12 @@ import { useRouter } from "next/router";
 import SubTweet from "./SubTweet";
 import axios from "axios";
 import { getTweetHtml } from "../utils/extractTwitterEntities";
+import { useState } from "react";
+import Spinner from "./icons/Spinner";
 
 const Preview = ({ tweets, user }) => {
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
 
   const originalMainTweet = tweets[0];
   const { tweetHtml: mainTweet, lastLink } = getTweetHtml(originalMainTweet);
@@ -40,9 +43,11 @@ const Preview = ({ tweets, user }) => {
           })}
           <div className="fixed bottom-0 z-20 flex items-center justify-center w-1/2 py-3 bg-white">
             <button
-              className="flex items-center justify-center px-4 py-3 text-base font-medium text-white bg-indigo-500 border border-transparent rounded-md shadow-sm bg-opacity-60 hover:bg-opacity-70 sm:px-8"
+              className={`flex items-center justify-center px-4 py-3 text-base font-medium text-white bg-indigo-500 border border-transparent rounded-md shadow-sm bg-opacity-60 hover:bg-opacity-70 sm:px-8 ${
+                loading ? `cursor-not-allowed` : ``
+              }`}
               onClick={async () => {
-                // console.log(tweets);
+                setLoading(true);
                 const { data } = await axios.post(`/api/`, {
                   tweets,
                 });
@@ -56,6 +61,9 @@ const Preview = ({ tweets, user }) => {
               }}
             >
               Tweet <span className="ml-3">🚀</span>
+              {loading && (
+                <Spinner className="w-5 h-5 ml-2 text-white animate-spin" />
+              )}
             </button>
           </div>
         </div>

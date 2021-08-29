@@ -5,6 +5,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import checkValidUrl from "../utils/checkValidUrl";
 import Header from "../components/Header";
+import Spinner from "../components/icons/Spinner";
 
 export default function Home() {
   const router = useRouter();
@@ -12,6 +13,9 @@ export default function Home() {
   const { user, error } = useUser();
   if (error) return <div>{error.message}</div>; // change
   const [inputUrl, setInputUrl] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
   const [postText, setPostText] = useLocalStorage("postText", "");
   const [postUrl, setPostUrl] = useLocalStorage("postUrl", "");
 
@@ -27,16 +31,22 @@ export default function Home() {
     }
 
     // also check if it is a valid URL or not
-    const { data } = await axios.get(`/api/scrape?url=${inputUrl}`);
-    const { blogPostText, error } = data;
 
-    if (error) {
-      // show error message in UI that not a hashnode blog, please enter a hashnode blog post url
-    }
-    if (blogPostText) {
-      await setPostText(blogPostText); // blog post text stored in localStorage as postText
-      await setPostUrl(inputUrl); // url stored in localStorage as postUrl
-      router.push("/edit");
+    setLoading(true);
+
+    try {
+      const { data } = await axios.get(`/api/scrape?url=${inputUrl}`);
+      const { blogPostText, error } = data;
+
+      if (blogPostText) {
+        await setPostText(blogPostText); // blog post text stored in localStorage as postText
+        await setPostUrl(inputUrl); // url stored in localStorage as postUrl
+        router.push("/edit");
+      }
+    } catch (error) {
+      console.error(error?.response?.data?.error);
+      setErrorMessage(error?.response?.data?.error);
+      setLoading(false);
     }
   };
   return (
@@ -83,10 +93,16 @@ export default function Home() {
                       {/* Add example URL i.e. townhall blog on Auth0? */}
 
                       <button
+                        disabled={loading}
                         onClick={handleFetchClick}
-                        className="flex items-center justify-center px-4 py-3 text-base font-medium text-white bg-indigo-500 border border-transparent rounded-md shadow-sm bg-opacity-60 hover:bg-opacity-70 sm:px-8"
+                        className={`flex items-center justify-center px-4 py-3 text-base font-medium text-white bg-indigo-500 border border-transparent rounded-md shadow-sm bg-opacity-60 hover:bg-opacity-70 sm:px-8 ${
+                          loading ? `cursor-not-allowed` : ``
+                        }`}
                       >
                         Fetch and Tweet
+                        {loading && (
+                          <Spinner className="w-5 h-5 ml-2 text-white animate-spin" />
+                        )}
                       </button>
                     </div>
                   </div>

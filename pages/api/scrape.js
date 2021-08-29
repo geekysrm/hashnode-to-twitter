@@ -19,6 +19,12 @@ export default async function handler(req, res) {
       .find("div.prose")
       .text();
     const cleanedBlogPostText = blogPostText.trim().replaceAll("\n", " ");
+    if (!blogPostText) {
+      res.status(404).json({
+        error: `Couldn't fetch post content. Please enter a correct Hashnode blog post URL`,
+      });
+      return;
+    }
 
     res.status(200).json({ blogPostText: cleanedBlogPostText });
   }
