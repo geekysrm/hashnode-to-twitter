@@ -35,15 +35,20 @@ export default function ImagePreview({ link }) {
   }, [link]);
 
   let title = "",
-    description = "";
+    description = "",
+    imageUrl = "";
   if (ogpData) {
     title = ogpData?.twitter_card?.title || ogpData.title;
     description = ogpData?.twitter_card?.description || ogpData.description;
     if (description?.length >= 100) {
       description = description.substring(0, 95) + "...";
     }
+    imageUrl =
+      ogpData?.twitter_card?.images[0]?.url ||
+      ogpData?.open_graph?.images[0]?.url ||
+      "";
   }
-  return ogpData ? (
+  return ogpData && imageUrl ? (
     <div>
       <a
         href={link}
@@ -52,14 +57,7 @@ export default function ImagePreview({ link }) {
         style={{ textDecoration: "none" }}
       >
         <div className="overflow-hidden border-t border-l border-r rounded-xl">
-          <img
-            className="border-b"
-            src={
-              ogpData?.twitter_card?.images[0]?.url ||
-              ogpData?.open_graph?.images[0]?.url ||
-              ""
-            }
-          />
+          <img className="border-b" src={imageUrl} />
           <div className="p-4 text-black bg-white border border-t-0 border-gray-200 rounded-b-xl hover:bg-gray-100">
             <p>{title}</p>
             <p className="text-gray-600">{description}</p>
