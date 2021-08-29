@@ -24,8 +24,7 @@ export default function ProtectedDonePage({ user }) {
   return (
     <div className="mx-auto max-w-7xl">
       <Head>
-        <title>My page title</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <title>Tweets Posted - Hashnode to Twitter</title>
         <script
           async
           src="https://platform.twitter.com/widgets.js"

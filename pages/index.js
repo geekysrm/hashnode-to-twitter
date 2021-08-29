@@ -53,8 +53,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>My page title</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <title>Hashnode to Twitter</title>
       </Head>
       <div className="overflow-y-auto">
         <div className="bg-white">
@@ -96,8 +95,6 @@ export default function Home() {
                           value={inputUrl}
                           onChange={(e) => setInputUrl(e.target.value)}
                         />
-                        {/* Add example URL i.e. townhall blog on Auth0? */}
-
                         <button
                           disabled={loading}
                           onClick={handleFetchClick}

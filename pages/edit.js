@@ -56,8 +56,7 @@ export default function ProtectedEditPage({ user }) {
   return (
     <>
       <Head>
-        <title>My page title</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <title>Edit thread - Hashnode to Twitter</title>
       </Head>
       <div className="mx-auto">
         <Header user={user} />
