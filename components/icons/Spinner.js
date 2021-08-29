@@ -1,4 +1,4 @@
-export default function (props) {
+export default function Spinner(props) {
   return (
     <svg
       {...props}

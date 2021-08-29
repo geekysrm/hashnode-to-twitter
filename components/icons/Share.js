@@ -1,4 +1,4 @@
-export default function (props) {
+export default function Share(props) {
   return (
     <svg {...props} viewBox="0 0 24 24" aria-hidden="true">
       <path d="M17.53 7.47l-5-5a.749.749 0 00-1.06 0l-5 5a.749.749 0 101.06 1.06l3.72-3.72V15a.75.75 0 001.5 0V4.81l3.72 3.72c.146.147.338.22.53.22s.384-.072.53-.22a.749.749 0 000-1.06z" />
