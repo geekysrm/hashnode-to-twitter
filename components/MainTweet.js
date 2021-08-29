@@ -6,9 +6,10 @@ import Retweet from "./icons/Retweet";
 import Share from "./icons/Share";
 import Like from "./icons/Like";
 import ImagePreview from "./ImagePreview";
+import twemoji from "twemoji";
 
-const MainTweet = ({ tweet, user, lastLink }) => {
-  // console.log(lastLink);
+const MainTweet = ({ tweet: oldTweet, user, lastLink }) => {
+  const tweet = twemoji.parse(oldTweet);
   const { date, time } = getTodaysDate();
   return (
     <div className={`${styles.tweet} -mt-6 main-tweet`}>
