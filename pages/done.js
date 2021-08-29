@@ -3,6 +3,7 @@ import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import Header from "../components/Header";
+import Spinner from "../components/icons/Spinner";
 
 export default function ProtectedDonePage({ user }) {
   const router = useRouter();
@@ -47,7 +48,8 @@ export default function ProtectedDonePage({ user }) {
           </a>{" "}
           to view it on Twitter.
         </span>
-        <div className="flex flex-col items-center w-full">
+        <p className="absolute top-1/2">Loading tweets...</p>
+        <div className="z-40 flex flex-col items-center w-full">
           {postedTweets.map((tweet) => (
             <blockquote className="twitter-tweet">
               <a

@@ -5,7 +5,6 @@ import SubTweet from "./SubTweet";
 import axios from "axios";
 import { getTweetHtml } from "../utils/extractTwitterEntities";
 import { useState } from "react";
-import Spinner from "./icons/Spinner";
 
 const Preview = ({ tweets, user }) => {
   const router = useRouter();
@@ -61,10 +60,10 @@ const Preview = ({ tweets, user }) => {
                 );
               }}
             >
-              Tweet <span className="ml-3">🚀</span>
-              {loading && (
-                <Spinner className="w-5 h-5 ml-2 text-white animate-spin" />
-              )}
+              Tweet{" "}
+              <span className={`ml-3 ${loading ? `animate-bounce` : ``}`}>
+                🚀
+              </span>
             </button>
           </div>
         </div>
