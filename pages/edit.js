@@ -5,9 +5,31 @@ import Preview from "../components/Preview";
 import Header from "../components/Header";
 import { RiDeleteBinLine } from "react-icons/ri";
 import countChars from "../utils/countChars";
+import EnterPopular from "../components/EnterPopular";
 
 const limit = 280;
 const joiner = "...";
+const popularWords = [
+  "🧵",
+  "💯",
+  "🎉",
+  "🎁",
+  "🔥",
+  "#javascript",
+  "#js",
+  "#nextjs",
+  "#tech",
+  "#100DaysOfCode",
+  "#code",
+  "#blog",
+  "#serverless",
+  "#nodejs",
+  "#programming",
+  "#tailwindcss",
+  "#html",
+  "#css",
+  "#webdev",
+];
 
 export default function ProtectedEditPage({ user }) {
   const [editorTexts, setEditorTexts] = useState([]);
@@ -29,7 +51,6 @@ export default function ProtectedEditPage({ user }) {
       setEditorTexts(sentencesWithPostLink);
     }
   }, []);
-  // console.log({ editorTexts });
 
   return (
     <div className="mx-auto">
@@ -44,48 +65,18 @@ export default function ProtectedEditPage({ user }) {
             {editorTexts.map((text, idx) => {
               return (
                 <div className="w-full mb-8">
-                  <button
-                    className=""
-                    onClick={() => {
-                      const curPos = document.getElementById(
-                        `tweet-${idx + 1}`
-                      ).selectionStart;
-                      const charsToBeAdded = `${text.slice(
-                        0,
-                        curPos
-                      )}🧵${text.slice(curPos)}`;
-                      let newArray = [];
-                      for (let i = 0; i < editorTexts.length; i++) {
-                        if (i === idx) {
-                          newArray.push(charsToBeAdded);
-                        } else newArray.push(editorTexts[i]);
-                      }
-                      setEditorTexts(newArray);
-                    }}
-                  >
-                    🧵
-                  </button>
-                  <button
-                    className=""
-                    onClick={() => {
-                      const curPos = document.getElementById(
-                        `tweet-${idx + 1}`
-                      ).selectionStart;
-                      const charsToBeAdded = `${text.slice(
-                        0,
-                        curPos
-                      )}🧵${text.slice(curPos)}`;
-                      let newArray = [];
-                      for (let i = 0; i < editorTexts.length; i++) {
-                        if (i === idx) {
-                          newArray.push(charsToBeAdded);
-                        } else newArray.push(editorTexts[i]);
-                      }
-                      setEditorTexts(newArray);
-                    }}
-                  >
-                    🧵
-                  </button>
+                  <p className="text-sm text-gray-600">Click to add:</p>
+                  <div className="mb-2 space-x-2 text-gray-600">
+                    {popularWords.map((ch) => (
+                      <EnterPopular
+                        editorTexts={editorTexts}
+                        text={text}
+                        idx={idx}
+                        toAdd={ch}
+                        setEditorTexts={setEditorTexts}
+                      />
+                    ))}
+                  </div>
 
                   <div class="bg-gray-200 px-3 py-2 border-b flex justify-between">
                     <h3 class="text-sm text-gray-800 font-medium">
