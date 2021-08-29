@@ -65,13 +65,14 @@ export default function Home() {
               <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div className="relative shadow-xl sm:rounded-2xl sm:overflow-hidden">
                   <div className="absolute inset-0">
-                    {/* <img
-                    className="object-cover w-full h-full"
-                    src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2830&q=80&sat=-100"
-                    alt="People working on laptops"
-                  /> */}
+                    <img
+                      className="object-cover w-full h-full"
+                      src="/images/banner.jpg"
+                      alt="Hashnode to Twitter"
+                    />
                     <div
-                      className="absolute inset-0 bg-gradient-to-r from-purple-800 to-indigo-700"
+                      className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-blue-700"
+                      // className="absolute inset-0 bg-yellow-200"
                       style={{ mixBlendMode: "multiply" }}
                     />
                   </div>
@@ -81,7 +82,7 @@ export default function Home() {
                         Hashnode to Twitter
                       </span>
                     </h1>
-                    <p className="max-w-lg mx-auto mt-6 text-xl text-center text-indigo-200 sm:max-w-3xl">
+                    <p className="max-w-lg mx-auto mt-6 text-xl text-center text-indigo-100 sm:max-w-3xl">
                       Post bite-sized summaries of your Hashnode blog post to
                       increase reach 🚀 🚀
                       {/* Improve above */}
@@ -98,7 +99,7 @@ export default function Home() {
                         <button
                           disabled={loading}
                           onClick={handleFetchClick}
-                          className={`flex items-center justify-center px-4 py-3 text-base font-medium text-white bg-indigo-500 border border-transparent rounded-md shadow-sm bg-opacity-60 hover:bg-opacity-70 sm:px-8 ${
+                          className={`flex items-center justify-center px-4 py-3 text-base font-medium text-white bg-indigo-600 hover:bg-indigo-800 border border-transparent rounded-md shadow-sm bg-opacity-90 sm:px-8 ${
                             loading ? `cursor-not-allowed` : ``
                           }`}
                         >
@@ -114,7 +115,7 @@ export default function Home() {
               </div>
             </div>
             {/* Logo Cloud */}
-            <div className="bg-gray-100">
+            {/* <div className="bg-gray-100">
               <div className="px-4 py-16 mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <p className="text-sm font-semibold tracking-wide text-center text-gray-500 uppercase">
                   Trusted by over 5 very average small businesses
@@ -157,7 +158,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
             {/* Alternating Feature Sections */}
             <div className="relative pt-16 pb-32 overflow-hidden">
               <div
