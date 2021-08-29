@@ -27,8 +27,9 @@ const Preview = ({ tweets, user }) => {
         <meta name="mobile-web-app-capable" content="yes" />
         <div className={styles.page}>
           <div className="border-solid border-[#eff3f4] border-b pb-4">
-            <p className="pl-3 mb-0 text-2xl font-semibold text-gray-900 ">
-              Thread
+            <p className="flex items-center pl-3 mb-0 text-2xl font-semibold text-gray-900">
+              <p>Thread</p>
+              <p className="ml-2 text-lg text-gray-500">(Preview)</p>
             </p>
           </div>
           <MainTweet user={user} tweet={mainTweet} lastLink={lastLink} />

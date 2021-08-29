@@ -4,6 +4,7 @@ import twitterSplitter from "twitter-splitter";
 import Preview from "../components/Preview";
 import Header from "../components/Header";
 import { RiDeleteBinLine } from "react-icons/ri";
+import countChars from "../utils/countChars";
 
 const limit = 280;
 const joiner = "...";
@@ -43,6 +44,15 @@ export default function ProtectedEditPage({ user }) {
             {editorTexts.map((text, idx) => {
               return (
                 <div className="w-full mb-8">
+                  <button
+                    className=""
+                    onClick={() => {
+                      console.log("thread clicked");
+                    }}
+                  >
+                    🧵
+                  </button>
+
                   <div class="bg-gray-200 px-3 py-2 border-b flex justify-between">
                     <h3 class="text-sm text-gray-800 font-medium">
                       Tweet #{idx + 1}
@@ -60,6 +70,7 @@ export default function ProtectedEditPage({ user }) {
                       </button>
                     </div>
                   </div>
+
                   <textarea
                     className="w-full px-2 py-4 mb-3 border-b-2 border-l-2 border-r-2 border-gray-200 h-36"
                     resize="vertical"
@@ -68,7 +79,6 @@ export default function ProtectedEditPage({ user }) {
                     placeholder="Enter a tweet"
                     onChange={(e) => {
                       let charToBeAdded = e.target.value;
-                      // console.log(charToBeAdded);
                       let newArray = [];
                       for (let i = 0; i < editorTexts.length; i++) {
                         if (i === idx) {
@@ -78,7 +88,9 @@ export default function ProtectedEditPage({ user }) {
                       setEditorTexts(newArray);
                     }}
                   />
-                  <p className="text-right text-gray-500">{text.length}/280</p>
+                  <p className="text-right text-gray-500">
+                    {countChars(text)}/280
+                  </p>
                 </div>
               );
             })}
