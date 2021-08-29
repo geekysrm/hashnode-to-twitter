@@ -63,7 +63,7 @@ export default function ProtectedEditPage({ user }) {
                   <textarea
                     className="w-full px-2 py-4 mb-3 border-b-2 border-l-2 border-r-2 border-gray-200 h-36"
                     resize="vertical"
-                    countLimit={280}
+                    maxLength={280}
                     value={text}
                     placeholder="Enter a tweet"
                     onChange={(e) => {

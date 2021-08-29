@@ -5,6 +5,7 @@ import Reply from "./icons/Reply";
 import Retweet from "./icons/Retweet";
 import Share from "./icons/Share";
 import Like from "./icons/Like";
+import ImagePreview from "./ImagePreview";
 
 const MainTweet = ({ tweet, user }) => {
   const { date, time } = getTodaysDate();
@@ -29,6 +30,7 @@ const MainTweet = ({ tweet, user }) => {
             __html: tweet,
           }}
         />
+        <ImagePreview />
 
         <div className={`${styles.date} ${styles.pt} ${styles.pb}`}>
           <span className={styles.dateTime}>
