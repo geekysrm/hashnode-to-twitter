@@ -18,6 +18,10 @@ export default async function handler(req, res) {
       .last("div")
       .find("div.prose")
       .text();
+    const hashtags = $("div#refNode1").html();
+    // find("div > div > a").text();
+    console.log("HEREEEEEE");
+    console.log(hashtags);
     const cleanedBlogPostText = blogPostText.trim().replaceAll("\n", " ");
     if (!blogPostText) {
       res.status(404).json({

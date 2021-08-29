@@ -65,6 +65,27 @@ export default function ProtectedEditPage({ user }) {
                   >
                     🧵
                   </button>
+                  <button
+                    className=""
+                    onClick={() => {
+                      const curPos = document.getElementById(
+                        `tweet-${idx + 1}`
+                      ).selectionStart;
+                      const charsToBeAdded = `${text.slice(
+                        0,
+                        curPos
+                      )}🧵${text.slice(curPos)}`;
+                      let newArray = [];
+                      for (let i = 0; i < editorTexts.length; i++) {
+                        if (i === idx) {
+                          newArray.push(charsToBeAdded);
+                        } else newArray.push(editorTexts[i]);
+                      }
+                      setEditorTexts(newArray);
+                    }}
+                  >
+                    🧵
+                  </button>
 
                   <div class="bg-gray-200 px-3 py-2 border-b flex justify-between">
                     <h3 class="text-sm text-gray-800 font-medium">
