@@ -29,7 +29,7 @@ export default function ProtectedEditPage({ user }) {
       setEditorTexts(sentencesWithPostLink);
     }
   }, []);
-  console.log({ editorTexts });
+  // console.log({ editorTexts });
 
   return (
     <div className="mx-auto">
@@ -69,7 +69,7 @@ export default function ProtectedEditPage({ user }) {
                     placeholder="Enter a tweet"
                     onChange={(e) => {
                       let charToBeAdded = e.target.value;
-                      console.log(charToBeAdded);
+                      // console.log(charToBeAdded);
                       let newArray = [];
                       for (let i = 0; i < editorTexts.length; i++) {
                         if (i === idx) {

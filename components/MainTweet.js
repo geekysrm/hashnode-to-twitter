@@ -23,7 +23,13 @@ const MainTweet = ({ tweet, user }) => {
             <FiChevronDown />
           </i>
         </div>
-        <div className={`${styles.tweetContent} ${styles.pt}`}>{tweet}</div>
+        {/* <div className={`${styles.tweetContent} ${styles.pt}`}>{tweet}</div> */}
+        <div
+          className={`${styles.tweetContent} ${styles.pt}`}
+          dangerouslySetInnerHTML={{
+            __html: tweet,
+          }}
+        />
 
         <div className={`${styles.date} ${styles.pt} ${styles.pb}`}>
           <span className={styles.dateTime}>

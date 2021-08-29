@@ -367,3 +367,11 @@
 .dateTime:hover {
   text-decoration: underline;
 }
+
+.rootContainer a {
+  color: #1b95e0;
+}
+.rootContainer a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}

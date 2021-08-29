@@ -3,11 +3,13 @@ import MainTweet from "./MainTweet";
 import { useRouter } from "next/router";
 import SubTweet from "./SubTweet";
 import axios from "axios";
+import { getTweetHtml } from "../utils/extractTwitterEntities";
 
 const Preview = ({ tweets, user }) => {
   const router = useRouter();
 
-  const mainTweet = tweets[0];
+  const originalMainTweet = tweets[0];
+  const mainTweet = getTweetHtml(originalMainTweet);
   let restTweets = [];
   for (let i = 1; i < tweets.length; i++) restTweets.push(tweets[i]);
 
@@ -30,7 +32,7 @@ const Preview = ({ tweets, user }) => {
             <button
               className="flex items-center justify-center px-4 py-3 text-base font-medium text-white bg-indigo-500 border border-transparent rounded-md shadow-sm bg-opacity-60 hover:bg-opacity-70 sm:px-8"
               onClick={async () => {
-                console.log(tweets);
+                // console.log(tweets);
                 const { data } = await axios.post(`/api/`, {
                   tweets,
                 });

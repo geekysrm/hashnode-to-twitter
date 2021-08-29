@@ -49,6 +49,5 @@ async function postTweetThread({ accessToken, accessTokenSecret, tweets }) {
   });
 
   const data = await t.tweetThread(textToTweetArray);
-  console.log("done");
   return data;
 }

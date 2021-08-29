@@ -11,9 +11,8 @@ export default function ProtectedDonePage({ user }) {
 
   useEffect(() => {
     const { postedTweets: postedTweetsString } = router.query;
-    console.log(postedTweetsString);
+    // console.log(postedTweetsString);
     if (!postedTweetsString) {
-      console.log("here");
       router.push("/");
     } else {
       const postedTweets = JSON.parse(postedTweetsString);
