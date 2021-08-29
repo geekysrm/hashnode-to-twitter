@@ -6,14 +6,12 @@ export default function Header({ user }) {
   const node = useRef();
 
   const [open, setOpen] = useState(false);
-  console.log(open);
   const handleClickOutside = (e) => {
     if (node.current.contains(e.target)) {
       // inside click
       return;
     }
     // outside click
-    console.log("outside click");
     setOpen(false);
   };
 
