@@ -29,9 +29,16 @@ const SubTweet = ({ tweet, user }) => {
               </i>
             </div>
 
-            <div className={`${styles.subtweetContent} ${styles.sl}`}>
+            {/* <div className={`${styles.subtweetContent} ${styles.sl}`}>
               {tweet}
-            </div>
+            </div> */}
+            <div
+              className={`${styles.subtweetContent} ${styles.sl}`}
+              dangerouslySetInnerHTML={{
+                __html: tweet,
+              }}
+            />
+
             <div className={`${styles.icons} flex justify-center items-center`}>
               <div className={`${styles.ico} reply-icon`}>
                 <Reply className="h-5 fill-current" />

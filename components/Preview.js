@@ -11,7 +11,11 @@ const Preview = ({ tweets, user }) => {
   const originalMainTweet = tweets[0];
   const mainTweet = getTweetHtml(originalMainTweet);
   let restTweets = [];
-  for (let i = 1; i < tweets.length; i++) restTweets.push(tweets[i]);
+  for (let i = 1; i < tweets.length; i++) {
+    const originalSubTweet = tweets[i];
+    const subTweet = getTweetHtml(originalSubTweet);
+    restTweets.push(subTweet);
+  }
 
   return (
     <div className={styles.rootContainer}>
