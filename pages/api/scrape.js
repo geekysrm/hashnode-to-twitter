@@ -5,6 +5,7 @@ export default async function handler(req, res) {
   const url = req.query.url;
 
   const $ = await fetchHTML(url);
+  console.log("$", $);
 
   const firstInputId = $("input").attr("id");
   const isHashnodeBlogPostUrl = firstInputId === "hn-user";
@@ -18,6 +19,8 @@ export default async function handler(req, res) {
       .last("div")
       .find("div.prose")
       .text();
+
+    console.log("blogposttext", blogPostText);
 
     const cleanedBlogPostText = blogPostText.trim().replaceAll("\n", " ");
     if (!blogPostText) {
