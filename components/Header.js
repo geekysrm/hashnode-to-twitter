@@ -53,7 +53,7 @@ export default function Header({ user }) {
             >
               <button
                 type="button"
-                className="inline-flex items-center px-4 py-2 text-base font-medium text-gray-800 bg-gray-200 border border-transparent rounded-md shadow-sm hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 "
+                className="inline-flex items-center px-4 py-2 text-base font-medium text-gray-800 bg-gray-200 border border-transparent rounded-md shadow-sm hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2"
               >
                 <FaGithub className="mr-1" /> View Source
               </button>
@@ -107,7 +107,7 @@ export default function Header({ user }) {
               </div>
             ) : (
               <Link href="/api/auth/login">
-                <a className="inline-flex items-center justify-center px-4 py-2 ml-4 text-base font-medium text-white border border-transparent rounded-md shadow-sm whitespace-nowrap bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700">
+                <a className="inline-flex items-center justify-center px-4 py-2 ml-4 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm whitespace-nowrap hover:bg-indigo-800 bg-opacity-90">
                   Login
                 </a>
               </Link>
