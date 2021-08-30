@@ -73,7 +73,7 @@ export default function Home() {
                   <div className="absolute inset-0">
                     <img
                       className="object-cover w-full h-full"
-                      src="/images/banner2.jpg"
+                      src="/images/banner.jpg"
                       alt="Hashnode to Twitter"
                     />
                     <div
