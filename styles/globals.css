@@ -1,3 +1,6 @@
+html {
+  scroll-behavior: smooth;
+}
 img.emoji {
   height: 1em;
   width: 1em;

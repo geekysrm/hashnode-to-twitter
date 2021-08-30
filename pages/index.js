@@ -146,38 +146,23 @@ export default function Home() {
                     <div>
                       <div>
                         <span className="flex items-center justify-center w-12 h-12 rounded-md bg-gradient-to-r from-purple-600 to-indigo-600">
-                          <svg
-                            className="w-6 h-6 text-white"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            aria-hidden="true"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
-                            />
-                          </svg>
+                          <FaTwitter className="w-6 h-6 text-white" />
                         </span>
                       </div>
                       <div className="mt-6">
                         <h2 className="text-3xl font-extrabold tracking-tight text-gray-900">
-                          Stay on top of customer support
+                          Edit tweets in a jiffy
                         </h2>
-                        <p className="mt-4 text-lg text-gray-500">
-                          Semper curabitur ullamcorper posuere nunc sed. Ornare
-                          iaculis bibendum malesuada faucibus lacinia porttitor.
-                          Pulvinar laoreet sagittis viverra duis. In venenatis
-                          sem arcu pretium pharetra at. Lectus viverra dui
-                          tellus ornare pharetra.
+                        <p className="mt-4 mr-10 text-xl text-gray-500">
+                          Make bite-sized tweet-threads from your articles while
+                          seeing the live tweet preview on the screen.
+                          <br />
+                          Try it now:
                         </p>
                         <div className="mt-6">
                           <a
                             href="#"
-                            className="inline-flex px-4 py-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700"
+                            className="inline-flex px-4 py-2 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-800"
                           >
                             Get started
                           </a>
@@ -188,9 +173,8 @@ export default function Home() {
                       <blockquote>
                         <div>
                           <p className="text-base text-gray-500">
-                            “Cras velit quis eros eget rhoncus lacus ultrices
-                            sed diam. Sit orci risus aenean curabitur donec
-                            aliquet. Mi venenatis in euismod ut.”
+                            “Driving traffic to your blog is about as essential
+                            to your blogging success as your writing itself.”
                           </p>
                         </div>
                         <footer className="mt-3">
@@ -198,13 +182,18 @@ export default function Home() {
                             <div className="flex-shrink-0">
                               <img
                                 className="w-6 h-6 rounded-full"
-                                src="https://images.unsplash.com/photo-1509783236416-c9ad59bae472?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
+                                src="/images/wishpond.png"
                                 alt=""
                               />
                             </div>
-                            <div className="text-base font-medium text-gray-700">
-                              Marcia Hill, Digital Marketing Manager
-                            </div>
+                            <a
+                              href="https://blog.wishpond.com/post/54926252742/12-formulas-how-to-use-twitter-to-drive-traffic-to"
+                              target="_blank"
+                              rel="noreferrer noopener"
+                              className="text-base font-medium text-gray-700"
+                            >
+                              wishpond.com
+                            </a>
                           </div>
                         </footer>
                       </blockquote>
@@ -214,7 +203,7 @@ export default function Home() {
                     <div className="pl-4 -mr-48 sm:pl-6 md:-mr-16 lg:px-0 lg:m-0 lg:relative lg:h-full">
                       <img
                         className="w-full shadow-xl rounded-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
-                        src="https://tailwindui.com/img/component-images/inbox-app-screenshot-1.jpg"
+                        src="/images/screenshots/edit-screen.png"
                         alt="Inbox user interface"
                       />
                     </div>
@@ -244,21 +233,21 @@ export default function Home() {
                           </svg>
                         </span>
                       </div>
+
                       <div className="mt-6">
                         <h2 className="text-3xl font-extrabold tracking-tight text-gray-900">
-                          Better understand your customers
+                          Create provocative, intriguing tweet threads 🧵
                         </h2>
                         <p className="mt-4 text-lg text-gray-500">
-                          Semper curabitur ullamcorper posuere nunc sed. Ornare
-                          iaculis bibendum malesuada faucibus lacinia porttitor.
-                          Pulvinar laoreet sagittis viverra duis. In venenatis
-                          sem arcu pretium pharetra at. Lectus viverra dui
-                          tellus ornare pharetra.
+                          Twitter threads are one of the best ways to grow
+                          popular. Make irresistible tweet threads using popular
+                          #hashtags and emojis that bring traffic to your
+                          Hashnode blog.
                         </p>
                         <div className="mt-6">
                           <a
                             href="#"
-                            className="inline-flex px-4 py-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700"
+                            className="inline-flex px-4 py-2 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-800"
                           >
                             Get started
                           </a>
@@ -270,7 +259,7 @@ export default function Home() {
                     <div className="pr-4 -ml-48 sm:pr-6 md:-ml-16 lg:px-0 lg:m-0 lg:relative lg:h-full">
                       <img
                         className="w-full shadow-xl rounded-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:right-0 lg:h-full lg:w-auto lg:max-w-none"
-                        src="https://tailwindui.com/img/component-images/inbox-app-screenshot-2.jpg"
+                        src="/images/screenshots/done-screen.png"
                         alt="Customer profile user interface"
                       />
                     </div>
@@ -282,7 +271,7 @@ export default function Home() {
             <div className="bg-gradient-to-r from-purple-800 to-indigo-700">
               <div className="max-w-4xl px-4 py-16 mx-auto sm:px-6 sm:pt-20 sm:pb-24 lg:max-w-7xl lg:pt-24 lg:px-8">
                 <h2 className="text-3xl font-extrabold tracking-tight text-white">
-                  Your blog's reach to the moon 🚀 🌙
+                  Your blog's reach - to the moon 🚀 🌙
                 </h2>
                 <p className="max-w-3xl mt-4 text-lg text-purple-200">
                   Features of <b>Hashnode to Twitter</b> at a glance.
