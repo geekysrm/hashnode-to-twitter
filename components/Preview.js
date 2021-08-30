@@ -6,10 +6,15 @@ import axios from "axios";
 import { getTweetHtml } from "../utils/extractTwitterEntities";
 import { useState } from "react";
 import { FaTwitter } from "react-icons/fa";
+import useLocalStorage from "../utils/useLocalStorage";
 
 const Preview = ({ tweets, user }) => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [postedTweetsString, setpostedTweetsString] = useLocalStorage(
+    "postedTweetsString",
+    ""
+  );
 
   const originalMainTweet = tweets[0];
   const { tweetHtml: mainTweet, lastLink } = getTweetHtml(originalMainTweet);
@@ -53,13 +58,9 @@ const Preview = ({ tweets, user }) => {
                   tweets,
                   user,
                 });
-                router.push(
-                  {
-                    pathname: "/done",
-                    query: { postedTweets: JSON.stringify(data.postedTweets) },
-                  },
-                  "/done"
-                );
+                await setpostedTweetsString(data.postedTweets);
+
+                router.push("/done");
               }}
             >
               Tweet{" "}

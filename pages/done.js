@@ -1,26 +1,23 @@
 import { useState, useEffect } from "react";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import Head from "next/head";
-import { useRouter } from "next/router";
 import Header from "../components/Header";
 
 export default function ProtectedDonePage({ user }) {
-  const router = useRouter();
-
-  const [postedTweets, setPostedTweets] = useState(null);
+  const [postedTweets, setPostedTweets] = useState([]);
 
   useEffect(() => {
-    const { postedTweets: postedTweetsString } = router.query;
-    console.log(postedTweetsString);
-    if (!postedTweetsString) {
-      router.push("/");
-    } else {
-      const postedTweets = JSON.parse(postedTweetsString);
-      setPostedTweets(postedTweets);
+    if (typeof window !== "undefined") {
+      const postedTweetsString =
+        window.localStorage.getItem("postedTweetsString");
+      if (postedTweetsString) {
+        const postedTweets = JSON.parse(postedTweetsString);
+        setPostedTweets(postedTweets);
+      }
     }
   }, []);
 
-  if (!postedTweets) return <></>;
+  if (postedTweets?.length === 0) return <></>;
   return (
     <div className="mx-auto max-w-7xl">
       <Head>
@@ -51,7 +48,7 @@ export default function ProtectedDonePage({ user }) {
         </span>
         <p className="absolute top-1/2">Loading tweets...</p>
         <div className="z-40 flex flex-col items-center w-full px-5 md:px-0">
-          {postedTweets.map((tweet) => (
+          {postedTweets?.map((tweet) => (
             <blockquote className="twitter-tweet">
               <a
                 href={`https://twitter.com/${user.nickname}/status/${tweet.id_str}`}
