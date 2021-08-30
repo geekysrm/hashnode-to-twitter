@@ -2,7 +2,8 @@ import { TwitThread } from "twit-thread";
 import axios from "axios";
 import { AUTH0_ACCESS_TOKEN } from "./constants";
 
-async function init() {
+async function init(user) {
+  console.log(user);
   let axiosConfig = {
     headers: {
       authorization: `Bearer ${AUTH0_ACCESS_TOKEN}`,
@@ -10,7 +11,7 @@ async function init() {
   };
 
   let res = await axios.get(
-    `https://geekysrm2.us.auth0.com/api/v2/users/twitter|1428888913507078146`, // make the userID dynamic by getting it from the UI
+    `https://geekysrm2.us.auth0.com/api/v2/users/${user.sub}`,
     axiosConfig
   );
 
@@ -19,8 +20,8 @@ async function init() {
 }
 
 export default async function handler(req, res) {
-  const { tweets } = req.body;
-  const data = await init();
+  const { tweets, user } = req.body;
+  const data = await init(user);
   const access_token = data.identities[0].access_token;
   const access_token_secret = data.identities[0].access_token_secret;
 

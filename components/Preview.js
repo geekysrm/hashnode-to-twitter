@@ -51,6 +51,7 @@ const Preview = ({ tweets, user }) => {
                 setLoading(true);
                 const { data } = await axios.post(`/api/`, {
                   tweets,
+                  user,
                 });
                 router.push(
                   {
