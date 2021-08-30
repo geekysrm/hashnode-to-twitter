@@ -5,7 +5,6 @@ export default async function handler(req, res) {
   const url = req.query.url;
 
   const $ = await fetchHTML(url);
-  console.log("$", $);
 
   const firstInputId = $("input").attr("id");
   const isHashnodeBlogPostUrl = firstInputId === "hn-user";
@@ -20,9 +19,7 @@ export default async function handler(req, res) {
       .find("div.prose")
       .text();
 
-    console.log("blogposttext", blogPostText);
-
-    const cleanedBlogPostText = blogPostText.trim().replaceAll("\n", " ");
+    const cleanedBlogPostText = blogPostText.trim().replace(/\n/g, " ");
     if (!blogPostText) {
       res.status(404).json({
         error: `Couldn't fetch post content. Please enter a correct Hashnode blog post URL`,
