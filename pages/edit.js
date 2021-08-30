@@ -36,7 +36,7 @@ export default function ProtectedEditPage({ user }) {
   const [editorTexts, setEditorTexts] = useState([]);
 
   useEffect(() => {
-    if (process.browser) {
+    if (typeof window !== "undefined") {
       const postText = window.localStorage.getItem("postText");
       const postUrl = window.localStorage.getItem("postUrl");
       const sentences = twitterSplitter(

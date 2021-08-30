@@ -155,7 +155,7 @@ export default function Home() {
                         </h2>
                         <p className="mt-4 mr-10 text-xl text-gray-500">
                           Make bite-sized tweet-threads from your articles while
-                          seeing the live tweet preview on the screen.
+                          seeing the rich live tweet preview on the screen.
                           <br />
                           Try it now:
                         </p>
@@ -301,11 +301,12 @@ export default function Home() {
                     </div>
                     <div className="mt-6">
                       <h3 className="text-lg font-medium text-white">
-                        Live Preview
+                        Rich Live Preview
                       </h3>
                       <p className="mt-2 text-base text-purple-200">
-                        See a live preview of what you will tweet before
-                        actually tweeting it!
+                        See the exact rich, live tweet preview of what you will
+                        tweet before actually tweeting it! All texts, mentions,
+                        links, hashtags, emojis are the exact same as Twitter.
                       </p>
                     </div>
                   </div>
