@@ -1,29 +1,60 @@
 # Hashnode to Twitter
 
-This app allows you to post bite-sized tweets summarizing your Hashnode Blog post.
+This app allows you to post bite-sized tweets summarizing your [Hashnode](https://hashnode.com) blog post.
 
-It uses the new [`Just-in-Time Mode`](https://tailwindcss.com/docs/just-in-time-mode) for Tailwind CSS.
+**[Live Demo](https://hashnode-to-twitter.vercel.app)**
 
-## Preview
+To know more about its features and how I built this app on [my Hashnode blog](https://geekysrm.hashnode.dev/introducing-hashnode-to-twitter).
 
-Preview the example live on [StackBlitz](http://stackblitz.com/):
+## Video Demo
+<to be added real soon>
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
 
-## Deploy your own
+## Screenshots
+  
+### Homepage
+<img width="1792" alt="home page" src="https://user-images.githubusercontent.com/10224804/131415177-0db9d07a-8c39-4f34-977a-24398f0ca9ca.png">
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+  
+### Edit and Preview Tweets screen
+<img width="1792" alt="edit-screen" src="https://user-images.githubusercontent.com/10224804/131415148-7f9f3b9b-1536-4c7c-9873-e81df654287d.png">
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+  
+### Success Screen
+<img width="1792" alt="done-screen" src="https://user-images.githubusercontent.com/10224804/131415132-3bba910f-8451-4782-946f-42d3c7a03b5b.png">
+
+
 
 ## How to use
+1. On the homepage of the app, login into Twitter.
+2. Enter the URL of your Hashnode blog post and click on Fetch and Tweet.
+3. On the Edit page, customize the tweets to your liking.
+4. After editing and being satisfied with the preview, click on Tweet.
+5. Your tweets will be tweeted in few seconds and you will be sent to the success screen.
+6. On the success/done screen, you can see the posted tweets embedded.
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+## Tech used
+- Next.js
+- Tailwind CSS
+- Auth0
+- Twitter API
 
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-# or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
+## How to run locally
+_Node.JS and npm must be installed. Download and install them from  [here](https://nodejs.org/)._
+
+Follow these steps to run this project in your local computer.
+
 ```
+$ git clone https://github.com/geekysrm/hashnode-to-twitter.git
+$ cd hashnode-to-twitter
+$ npm i
+$ npm run dev
+```
+Dev server will be running on port 3000.
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+## Contributions
+All contributions are welcome. Bugs and feedback can be raised on the Issues tab.
+
+## Support
+If you like this and want to support my open-source work, please [buy me a coffee](https://coffee.soumya.dev/).
+
