@@ -65,7 +65,7 @@ export default function ProtectedEditPage({ user }) {
             <h2 className="py-0 pl-5 text-2xl font-bold leading-7 text-center text-gray-900 md:py-5 md:text-left sm:text-3xl sm:truncate">
               Edit Tweet Thread
             </h2>
-            <p className="text-center text-gray-600 md:hidden">
+            <p className="mb-4 text-center text-gray-600 md:hidden">
               Go to{" "}
               <a href="#preview" className="text-blue-500 hover:underline">
                 Preview
@@ -89,7 +89,7 @@ export default function ProtectedEditPage({ user }) {
                       ))}
                     </div>
 
-                    <div class="bg-gray-200 px-3 py-2 border-b flex justify-between">
+                    <div class="bg-indigo-100 px-3 py-2 border-b flex justify-between">
                       <h3 class="text-sm text-gray-800 font-medium">
                         Tweet #{idx + 1}
                       </h3>

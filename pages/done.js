@@ -11,7 +11,6 @@ export default function ProtectedDonePage({ user }) {
 
   useEffect(() => {
     const { postedTweets: postedTweetsString } = router.query;
-    // console.log(postedTweetsString);
     if (!postedTweetsString) {
       router.push("/");
     } else {
@@ -34,7 +33,8 @@ export default function ProtectedDonePage({ user }) {
       <Header user={user} />
       <section className="flex flex-col items-center mx-auto">
         <h2 className="pt-5 pb-4 pl-5 text-2xl font-bold leading-7 text-center text-gray-900 sm:text-3xl sm:truncate">
-          Congrats! 🎉 <p>Your tweet thread was successfully posted!</p>
+          Congrats! 🎉{" "}
+          <p className="mt-1">Your tweet thread was successfully posted!</p>
         </h2>
         <span className="text-gray-500">
           Click{" "}

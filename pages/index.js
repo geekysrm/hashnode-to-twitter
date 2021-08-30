@@ -87,7 +87,20 @@ export default function Home() {
                       {/* Improve above */}
                     </p>
                     <div className="flex flex-col max-w-sm mx-auto mt-10 sm:max-w-none sm:flex sm:justify-center">
-                      <div className="flex justify-center w-full">
+                      <div className="flex flex-col items-center justify-center w-full">
+                        <label className="mb-2 text-gray-200">
+                          Enter a Hashnode blog post URL below or{" "}
+                          <span
+                            className="font-medium text-blue-300 cursor-pointer"
+                            onClick={() =>
+                              setInputUrl(
+                                "https://geekysrm.hashnode.dev/what-is-tailwind-css"
+                              )
+                            }
+                          >
+                            Use example
+                          </span>
+                        </label>
                         <input
                           type="text"
                           placeholder="https://townhall.hashnode.com/auth0-hackathon"
