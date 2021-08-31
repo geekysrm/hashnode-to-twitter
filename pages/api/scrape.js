@@ -22,7 +22,7 @@ export default async function handler(req, res) {
     const cleanedBlogPostText = blogPostText.trim().replace(/\n/g, " ");
     if (!blogPostText) {
       res.status(404).json({
-        error: `Couldn't fetch post content. Please enter a correct Hashnode blog post URL`,
+        error: `Couldn't fetch post content. Please enter a correct Hashnode blog post URL.`,
       });
       return;
     }

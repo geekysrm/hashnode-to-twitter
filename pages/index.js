@@ -26,27 +26,26 @@ export default function Home() {
   const [postUrl, setPostUrl] = useLocalStorage("postUrl", "");
 
   const handleFetchClick = async () => {
+    setErrorMessage("");
     if (!inputUrl) {
+      setErrorMessage("Please enter a valid Hashnode blog post URL.");
       return;
-      // show error in UI that please enter a URL
     }
     const isValidUrl = checkValidUrl(inputUrl);
     if (!isValidUrl) {
+      setErrorMessage("Please enter a valid Hashnode blog post URL.");
       return;
-      // show error in UI that please enter a valid URL
     }
-
-    // also check if it is a valid URL or not
 
     setLoading(true);
 
     try {
       const { data } = await axios.get(`/api/scrape?url=${inputUrl}`);
-      const { blogPostText, error } = data;
+      const { blogPostText } = data;
 
       if (blogPostText) {
-        await setPostText(blogPostText); // blog post text stored in localStorage as postText
-        await setPostUrl(inputUrl); // url stored in localStorage as postUrl
+        await setPostText(blogPostText);
+        await setPostUrl(inputUrl);
         router.push("/edit");
       }
     } catch (error) {
@@ -112,6 +111,9 @@ export default function Home() {
                           value={inputUrl}
                           onChange={(e) => setInputUrl(e.target.value)}
                         />
+                        <p className="mb-4 -mt-3 font-medium text-red-400">
+                          {errorMessage}
+                        </p>
                       </div>
                       <div className="flex flex-col space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:gap-5">
                         <button
