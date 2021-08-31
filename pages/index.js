@@ -87,7 +87,6 @@ export default function Home() {
                     <p className="max-w-lg mx-auto mt-6 text-xl text-center text-indigo-100 sm:max-w-3xl">
                       Post bite-sized summaries of your Hashnode blog post to
                       increase reach 🚀 🚀
-                      {/* Improve above */}
                     </p>
                     <div className="flex flex-col max-w-sm mx-auto mt-10 sm:max-w-none sm:flex sm:justify-center">
                       <div className="flex flex-col items-center justify-center w-full">
