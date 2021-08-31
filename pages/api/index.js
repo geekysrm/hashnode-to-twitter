@@ -3,7 +3,6 @@ import axios from "axios";
 import { AUTH0_ACCESS_TOKEN } from "./constants";
 
 async function init(user) {
-  console.log(user);
   let axiosConfig = {
     headers: {
       authorization: `Bearer ${AUTH0_ACCESS_TOKEN}`,

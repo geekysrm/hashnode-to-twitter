@@ -17,7 +17,6 @@ export default function Home() {
   const router = useRouter();
 
   const { user, error } = useUser();
-  console.log(user);
   if (error) return <div>{error.message}</div>; // change
   const [inputUrl, setInputUrl] = useState("");
   const [loading, setLoading] = useState(false);
@@ -51,7 +50,6 @@ export default function Home() {
         router.push("/edit");
       }
     } catch (error) {
-      console.error(error?.response?.data?.error);
       setErrorMessage(error?.response?.data?.error);
       setLoading(false);
     }

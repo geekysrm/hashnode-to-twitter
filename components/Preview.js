@@ -16,7 +16,6 @@ const Preview = ({ tweets, user }) => {
     "postedTweetsString",
     ""
   );
-  console.log(tweets);
 
   const originalMainTweet = tweets[0];
   const { tweetHtml: mainTweet, lastLink } = getTweetHtml(originalMainTweet);
