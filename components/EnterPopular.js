@@ -1,5 +1,5 @@
-import countChars from "../utils/countChars";
 import isEmoji from "isemoji";
+import countChars from "../utils/countChars";
 
 export default function EnterPopular({
   idx,

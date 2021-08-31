@@ -1,17 +1,17 @@
 import { useState } from "react";
 import { useUser } from "@auth0/nextjs-auth0";
-import useLocalStorage from "../utils/useLocalStorage";
-import axios from "axios";
-import { useRouter } from "next/router";
-import checkValidUrl from "../utils/checkValidUrl";
-import Header from "../components/Header";
-import Spinner from "../components/icons/Spinner";
 import Head from "next/head";
+import axios from "axios";
 import { HiOutlineHashtag } from "react-icons/hi";
 import { FaTwitter, FaArrowsAltH, FaGithub } from "react-icons/fa";
 import { FiEdit } from "react-icons/fi";
 import { AiOutlinePicture } from "react-icons/ai";
 import { ImListNumbered } from "react-icons/im";
+import { useRouter } from "next/router";
+import useLocalStorage from "../utils/useLocalStorage";
+import checkValidUrl from "../utils/checkValidUrl";
+import Header from "../components/Header";
+import Spinner from "../components/icons/Spinner";
 
 export default function Home() {
   const router = useRouter();

@@ -1,11 +1,11 @@
 import styles from "../styles/Preview.module.css";
-import MainTweet from "./MainTweet";
-import { useRouter } from "next/router";
-import SubTweet from "./SubTweet";
-import axios from "axios";
-import { getTweetHtml } from "../utils/extractTwitterEntities";
 import { useState } from "react";
 import { FaTwitter } from "react-icons/fa";
+import { useRouter } from "next/router";
+import axios from "axios";
+import MainTweet from "./MainTweet";
+import SubTweet from "./SubTweet";
+import { getTweetHtml } from "../utils/extractTwitterEntities";
 import useLocalStorage from "../utils/useLocalStorage";
 
 const Preview = ({ tweets, user }) => {

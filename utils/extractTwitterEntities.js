@@ -11,7 +11,6 @@ export const getTweetHtml = (tweet) => {
   if (links && links.length) {
     lastLink = links.slice(-1)[0];
   }
-  //   console.log(lastLink);
 
   return { tweetHtml, lastLink };
 };

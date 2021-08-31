@@ -1,12 +1,12 @@
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { useState, useEffect } from "react";
 import twitterSplitter from "twitter-splitter";
+import Head from "next/head";
+import { RiDeleteBinLine } from "react-icons/ri";
 import Preview from "../components/Preview";
 import Header from "../components/Header";
-import { RiDeleteBinLine } from "react-icons/ri";
 import countChars from "../utils/countChars";
 import EnterPopular from "../components/EnterPopular";
-import Head from "next/head";
 
 const limit = 280;
 const joiner = "...";

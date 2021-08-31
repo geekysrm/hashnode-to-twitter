@@ -1,12 +1,12 @@
 import styles from "../styles/Preview.module.css";
 import { FiChevronDown } from "react-icons/fi";
+import twemoji from "twemoji";
 import getTodaysDate from "../utils/getTodaysDate";
 import Reply from "./icons/Reply";
 import Retweet from "./icons/Retweet";
 import Share from "./icons/Share";
 import Like from "./icons/Like";
 import ImagePreview from "./ImagePreview";
-import twemoji from "twemoji";
 
 const MainTweet = ({ tweet: oldTweet, user, lastLink }) => {
   const tweet = twemoji.parse(oldTweet);
