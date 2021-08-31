@@ -375,24 +375,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            {/* Stats section */}
-            <div className="relative bg-gray-900">
-              <div className="absolute bottom-0 h-80 xl:inset-0 xl:h-full xl:w-full">
-                <div className="w-full h-full xl:grid xl:grid-cols-2">
-                  <div className="h-full xl:relative xl:col-start-2">
-                    <img
-                      className="object-cover w-full h-full opacity-25 xl:absolute xl:inset-0"
-                      src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2830&q=80&sat=-100"
-                      alt="People working on laptops"
-                    />
-                    <div
-                      aria-hidden="true"
-                      className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-gray-900 xl:inset-y-0 xl:left-0 xl:h-full xl:w-32 xl:bg-gradient-to-r"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
+
             {/* CTA Section */}
             <div className="bg-white">
               <div className="max-w-4xl px-4 py-16 mx-auto sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8 lg:flex lg:items-center lg:justify-between">
@@ -401,7 +384,7 @@ export default function Home() {
                     Ready to make your Hashnode articles{" "}
                     <span className="text-indigo-500">popular?</span>
                   </span>
-                  <span className="text-xl font-semibold text-indigo-500">
+                  <span className="text-xl font-semibold text-indigo-700">
                     Enter your Hashnode blog post's URL and tweet away!
                   </span>
                 </h2>
@@ -443,7 +426,12 @@ export default function Home() {
                     className="text-gray-400 hover:text-gray-500"
                   >
                     <span className="sr-only">Hashnode</span>
-                    <img src="/images/hashnode.png" width={22} height={22} />
+                    <img
+                      src="/images/hashnode.png"
+                      width={22}
+                      height={22}
+                      alt="Hashnode"
+                    />
                   </a>
 
                   <a
@@ -465,7 +453,7 @@ export default function Home() {
                     <FaGithub className="w-6 h-6" />
                   </a>
                 </div>
-                <p className="mt-8 text-base text-gray-400 md:mt-0 md:order-1">
+                <p className="mt-8 text-base text-gray-500 md:mt-0 md:order-1">
                   Made with ❤️ by{" "}
                   <a
                     href="https://soumya.dev"
