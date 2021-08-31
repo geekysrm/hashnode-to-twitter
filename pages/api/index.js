@@ -28,7 +28,7 @@ export default async function handler(req, res) {
   const postedTweets = await postTweetThread({
     accessToken: access_token,
     accessTokenSecret: access_token_secret,
-    tweets: tweets.slice(0, 4),
+    tweets: tweets.slice(0, 6),
     replyID: null,
   });
 

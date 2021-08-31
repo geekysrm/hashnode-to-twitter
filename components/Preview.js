@@ -11,10 +11,12 @@ import useLocalStorage from "../utils/useLocalStorage";
 const Preview = ({ tweets, user }) => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const [postedTweetsString, setpostedTweetsString] = useLocalStorage(
     "postedTweetsString",
     ""
   );
+  console.log(tweets);
 
   const originalMainTweet = tweets[0];
   const { tweetHtml: mainTweet, lastLink } = getTweetHtml(originalMainTweet);
@@ -41,13 +43,20 @@ const Preview = ({ tweets, user }) => {
           {restTweets.map((tweet) => {
             return (
               <SubTweet
+                key={tweet.subTweet}
                 user={user}
                 tweet={tweet.subTweet}
                 lastLink={tweet.lastLink}
               />
             );
           })}
-          <div className="fixed bottom-0 z-20 flex items-center justify-center w-full py-3 bg-white md:w-1/2">
+
+          <div className="fixed bottom-0 z-20 flex flex-col items-center justify-center w-full py-3 bg-white md:flex-row md:-ml-16 md:w-1/2">
+            {(loading && tweets?.length) > 6 && (
+              <p className="mb-2 mr-2 text-indigo-600 md:absolute md:left-1/4">
+                Posting first 6 tweets...
+              </p>
+            )}
             <button
               className={`flex items-center justify-center px-4 py-3 text-base font-medium text-white bg-indigo-600 hover:bg-indigo-800 border border-transparent rounded-md shadow-sm bg-opacity-90 sm:px-8 ${
                 loading ? `cursor-not-allowed` : ``

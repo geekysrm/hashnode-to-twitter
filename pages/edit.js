@@ -65,6 +65,15 @@ export default function ProtectedEditPage({ user }) {
             <h2 className="py-0 pl-5 text-2xl font-bold leading-7 text-center text-gray-900 md:py-5 md:text-left sm:text-3xl sm:truncate">
               Edit Tweet Thread
             </h2>
+            <p className="py-0 pl-5 mt-2 mb-2 text-sm leading-tight text-center text-gray-600 md:-mt-2 md:text-left sm:truncate md:mb-0">
+              It is recommended to not post more than 6 tweets in total at once
+              for better visibility.
+            </p>
+            <p className="py-0 pl-5 mb-2 text-sm font-semibold leading-tight text-center text-gray-600 md:mt-2 md:mb-6 md:text-left sm:truncate">
+              If number of tweets is more than 6, then first 6 tweets will be
+              posted.
+            </p>
+
             <p className="mb-4 text-center text-gray-600 md:hidden">
               Go to{" "}
               <a href="#preview" className="text-blue-500 hover:underline">
@@ -89,8 +98,8 @@ export default function ProtectedEditPage({ user }) {
                       ))}
                     </div>
 
-                    <div class="bg-indigo-100 px-3 py-2 border-b flex justify-between">
-                      <h3 class="text-sm text-gray-800 font-medium">
+                    <div className="flex justify-between px-3 py-2 bg-indigo-100 border-b">
+                      <h3 className="text-sm font-medium text-gray-800">
                         Tweet #{idx + 1}
                       </h3>
                       <div>
@@ -108,6 +117,7 @@ export default function ProtectedEditPage({ user }) {
                     </div>
 
                     <textarea
+                      key={`tweet-${idx + 1}`}
                       id={`tweet-${idx + 1}`}
                       className="w-full px-2 py-4 mb-3 border-b-2 border-l-2 border-r-2 border-gray-200 h-36"
                       resize="vertical"
