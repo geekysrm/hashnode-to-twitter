@@ -11,7 +11,6 @@ import useLocalStorage from "../utils/useLocalStorage";
 const Preview = ({ tweets, user }) => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
   const [postedTweetsString, setpostedTweetsString] = useLocalStorage(
     "postedTweetsString",
     ""
